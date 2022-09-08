@@ -46,60 +46,60 @@ class LoginPageState extends State<LoginPage> {
           children: <Widget>[
             Container(
                 alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.fromLTRB(40, 139, 0, 20),
                 child: const Text(
                   'Sign In',
                   style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 48),
                 )),
             Container(
                 alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.only(left: 40),
                 child: const Text(
-                  'Welcome Back!!',
-                  style: TextStyle(fontSize: 20),
+                  'Welcome back!',
+                  style: TextStyle(fontSize: 32),
                 )),
             Container(
-              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.fromLTRB(40, 75, 40, 0),
               child: TextField(
                 controller: nameController,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green),
+                        borderSide: BorderSide(color: Color(0xFF2CBF6C)),
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green),
+                        borderSide: BorderSide(color: Color(0xFF2CBF6C)),
                         borderRadius: BorderRadius.circular(10)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: "Username",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Color(0xFF2CBF6C))),
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.fromLTRB(40, 20, 40, 0),
               child: TextFormField(
                 focusNode: myFocusNode,
                 controller: passwordController,
                 obscureText: _secureText,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
+                      borderSide: BorderSide(color: Color(0xFF2CBF6C)),
                       borderRadius: BorderRadius.circular(10)),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
+                      borderSide: BorderSide(color: Color(0xFF2CBF6C)),
                       borderRadius: BorderRadius.circular(10)),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
                   labelText: "Password",
-                  labelStyle: TextStyle(color: Colors.green),
+                  labelStyle: TextStyle(color: Color(0xFF2CBF6C)),
                   suffixIcon: IconButton(
                     onPressed: showHide,
                     icon: Icon(
                       _secureText ? Icons.visibility_off : Icons.visibility,
-                      color: Colors.green,
+                      color: Color(0xFF2CBF6C),
                     ),
                   ),
                 ),
@@ -107,13 +107,15 @@ class LoginPageState extends State<LoginPage> {
             ),
             Container(
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                margin: const EdgeInsets.fromLTRB(40, 20, 40, 0),
                 child: ElevatedButton(
                   child: Text(_isLoading ? 'Please wait ...' : 'Sign In'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
+                    primary: Color(0xFF2CBF6C),
                     textStyle: TextStyle(fontSize: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                   onPressed: () {
                     _login();

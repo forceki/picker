@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:picker/view/auth/login_page.dart';
+import 'package:picker/view/home/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Layout extends StatefulWidget {
@@ -18,11 +19,11 @@ class _LayoutState extends State<Layout> {
   int currentIndex = 0;
 
   final itemContent = [
-    Center(child: Text("Home")),
-    Center(child: Text("On Going")),
-    Center(child: Text("queue")),
+    HomePage(),
+    Center(child: Text("Ongoing")),
+    Center(child: Text("Queue")),
     Center(child: Text("Finished")),
-    Center(child: Text("my Account")),
+    Center(child: Text("My Account")),
   ];
 
   @override
@@ -47,14 +48,15 @@ class _LayoutState extends State<Layout> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'welcome back $name',
-          style: TextStyle(fontSize: 18),
+          'Logged in $name',
+          style: TextStyle(fontSize: 16, color: Colors.black),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(Icons.power_settings_new),
+            icon: Icon(Icons.power_settings_new, color: Colors.black),
             onPressed: () {
               logout();
             },
@@ -69,13 +71,13 @@ class _LayoutState extends State<Layout> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.stacked_bar_chart), label: "ongoing"),
+                icon: Icon(Icons.stacked_bar_chart), label: "Ongoing"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.layers_rounded), label: "queue"),
+                icon: Icon(Icons.layers_rounded), label: "Queue"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.stacked_bar_chart), label: "finished"),
+                icon: Icon(Icons.stacked_bar_chart), label: "Finished"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person), label: "my account")
+                icon: Icon(Icons.person), label: "My Account")
           ]),
     );
   }
