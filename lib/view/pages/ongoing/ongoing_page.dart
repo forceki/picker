@@ -20,14 +20,16 @@ class _OnGoingPageState extends State<OnGoingPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: Column(
                   children: [
-                    Align(
+                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: const Text(
-                          "Should be left",
+                          "Ongoing",
+                          style:
+                              TextStyle(color: Color(0xFF2CBF6C), fontSize: 34),
                         ),
                       ),
                     ),
@@ -35,7 +37,8 @@ class _OnGoingPageState extends State<OnGoingPage> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: const Text(
-                          "Should be left",
+                          "20220804A010000001",
+                          style: TextStyle(color: Colors.black, fontSize: 24),
                         ),
                       ),
                     ),
@@ -45,7 +48,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
               Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: Container(
-                  margin: const EdgeInsets.only(right: 2),
+                  //margin: const EdgeInsets.only(right: 2),
                   child: Text("CHART"),
                   height: 50,
                   color: Colors.blueAccent,
@@ -54,19 +57,21 @@ class _OnGoingPageState extends State<OnGoingPage> {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(top: 10, bottom: 10),
+            margin: const EdgeInsets.fromLTRB(16, 12, 16, 36),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  margin: const EdgeInsets.all(1.0),
+                  //margin: const EdgeInsets.all(1.0),
                   child: Column(
                     children: [
                       Align(
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "Should be left",
+                            "Articles",
+                            style: TextStyle(
+                                color: Color(0xFF2CBF6C), fontSize: 16),
                           ),
                         ),
                       ),
@@ -74,7 +79,8 @@ class _OnGoingPageState extends State<OnGoingPage> {
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "9999/999",
+                            "88/888",
+                            style: TextStyle(color: Colors.black, fontSize: 24),
                           ),
                         ),
                       ),
@@ -82,14 +88,16 @@ class _OnGoingPageState extends State<OnGoingPage> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(1.0),
+                  //margin: const EdgeInsets.all(1.0),
                   child: Column(
                     children: [
                       Align(
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "Should be left",
+                            "Quantity",
+                            style: TextStyle(
+                                color: Color(0xFF2CBF6C), fontSize: 16),
                           ),
                         ),
                       ),
@@ -97,7 +105,8 @@ class _OnGoingPageState extends State<OnGoingPage> {
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "9999/999",
+                            "888/8.888",
+                            style: TextStyle(color: Colors.black, fontSize: 24),
                           ),
                         ),
                       ),
@@ -105,14 +114,16 @@ class _OnGoingPageState extends State<OnGoingPage> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(1.0),
+                  //margin: const EdgeInsets.all(1.0),
                   child: Column(
                     children: [
                       Align(
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "Should be left",
+                            "Duration",
+                            style: TextStyle(
+                                color: Color(0xFF2CBF6C), fontSize: 16),
                           ),
                         ),
                       ),
@@ -120,7 +131,8 @@ class _OnGoingPageState extends State<OnGoingPage> {
                         alignment: Alignment.center,
                         child: Container(
                           child: const Text(
-                            "9999/999",
+                            "88:88:88",
+                            style: TextStyle(color: Colors.black, fontSize: 24),
                           ),
                         ),
                       ),
@@ -135,22 +147,37 @@ class _OnGoingPageState extends State<OnGoingPage> {
             itemCount: 6,
             itemBuilder: ((context, index) {
               return Container(
-                margin: const EdgeInsets.all(10),
-                height: 100,
+                margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                padding: const EdgeInsets.all(10),
+                height: 82,
                 decoration: const BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                    color: Color(0xFFF2F2F2),
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(height: 50, width: 50, color: Colors.black),
+                      Container(
+                          height: 64, width: 64, color: Color(0xFF84D9B1)),
                       Column(
                         children: [
+                          Flexible(
+                            //alignment: Alignment.centerLeft,
+                            child: RichText(
+                              overflow: TextOverflow.ellipsis,
+                              text: TextSpan(
+                                text: "B-02-CA-04-B01, B-02-CA-03-B02",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          ),
                           Align(
-                            alignment: Alignment.center,
+                            alignment: Alignment.centerLeft,
                             child: Container(
                               child: const Text(
-                                "9999/999",
+                                "Article Name",
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C), fontSize: 14),
                               ),
                             ),
                           ),
@@ -158,13 +185,19 @@ class _OnGoingPageState extends State<OnGoingPage> {
                             alignment: Alignment.center,
                             child: Container(
                               child: const Text(
-                                "9999/999",
+                                "Size & Color",
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C), fontSize: 14),
                               ),
                             ),
                           ),
                         ],
                       ),
-                      Container(height: 50, width: 50, color: Colors.black),
+                      Container(
+                          child: const Text(
+                        '88',
+                        style: TextStyle(color: Colors.black, fontSize: 48, fontWeight: FontWeight.w300),
+                      )),
                     ]),
               );
             }),
