@@ -18,9 +18,9 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Center(
-            child: Container(
-              padding: EdgeInsets.fromLTRB(0, 24, 0, 10),
-              child: Text(
+              child: Container(
+            padding: EdgeInsets.fromLTRB(0, 24, 0, 10),
+            child: const Text(
               "Ongoing Picklist",
               style: TextStyle(
                 color: Colors.black,
@@ -28,9 +28,8 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 16,
               ),
             ),
-            )
-          ),
-          Center(
+          )),
+          const Center(
             child: Text(
               "20220804A010000001",
               style: TextStyle(

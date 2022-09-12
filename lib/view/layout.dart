@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:picker/view/auth/login_page.dart';
-import 'package:picker/view/home/home_page.dart';
+import 'package:picker/view/pages/finished/finished_page.dart';
+import 'package:picker/view/pages/home/home_page.dart';
+import 'package:picker/view/pages/ongoing/ongoing_page.dart';
+import 'package:picker/view/pages/queue/queue_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Layout extends StatefulWidget {
@@ -20,9 +23,9 @@ class _LayoutState extends State<Layout> {
 
   final itemContent = [
     HomePage(),
-    Center(child: Text("Ongoing")),
-    Center(child: Text("Queue")),
-    Center(child: Text("Finished")),
+    OnGoingPage(),
+    QueuePage(),
+    FinishedPage(),
     Center(child: Text("My Account")),
   ];
 
