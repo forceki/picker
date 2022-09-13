@@ -25,6 +25,14 @@ class _QueuePageState extends State<QueuePage> {
                   margin: const EdgeInsets.all(1.0),
                   child: Column(
                     children: [
+                      Container(
+                          alignment: Alignment.centerLeft,
+                          margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                          child: const Text(
+                            'Queue',
+                            style: TextStyle(
+                                color: Color(0xFF2CBF6C), fontSize: 34),
+                          )),
                       Align(
                         alignment: Alignment.center,
                         child: Container(

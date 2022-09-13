@@ -23,7 +23,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
                 margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: Column(
                   children: [
-                     Align(
+                    Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: const Text(
@@ -160,14 +160,13 @@ class _OnGoingPageState extends State<OnGoingPage> {
                           height: 64, width: 64, color: Color(0xFF84D9B1)),
                       Column(
                         children: [
-                          Flexible(
-                            //alignment: Alignment.centerLeft,
-                            child: RichText(
-                              overflow: TextOverflow.ellipsis,
-                              text: TextSpan(
-                                text: "B-02-CA-04-B01, B-02-CA-03-B02",
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              child: const Text(
+                                "B-02-CA-04-B01",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+                                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500 ),
                               ),
                             ),
                           ),
@@ -196,7 +195,10 @@ class _OnGoingPageState extends State<OnGoingPage> {
                       Container(
                           child: const Text(
                         '88',
-                        style: TextStyle(color: Colors.black, fontSize: 48, fontWeight: FontWeight.w300),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 48,
+                            fontWeight: FontWeight.w300),
                       )),
                     ]),
               );
