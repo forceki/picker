@@ -1,27 +1,41 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:picker/components/ongoingappbar/ongoing_appbar.dart';
-import 'package:picker/view/pages/ongoing/ongoing_detail.dart';
 
-class OnGoingPage extends StatefulWidget {
-  const OnGoingPage({Key? key, required this.changeNavbar}) : super(key: key);
-
-  final Function(int) changeNavbar;
+class FinishedList extends StatefulWidget {
+  const FinishedList({Key? key}) : super(key: key);
 
   @override
-  State<OnGoingPage> createState() => _OnGoingPageState();
+  State<FinishedList> createState() => _FinishedListState();
 }
 
-class _OnGoingPageState extends State<OnGoingPage> {
+class _FinishedListState extends State<FinishedList> {
+  final _currentIndex = 3;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Logged in uus',
+          style: TextStyle(fontSize: 16, color: Colors.black),
+        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.power_settings_new, color: Colors.black),
+            onPressed: () {
+              print("anu");
+            },
+          )
+        ],
+      ),
+      body: Container(
+        child: Column(children: [
           OngoingAppbar(
-            title: "Ongoing",
+            title: "Finished",
           ),
           Expanded(
               child: ListView.builder(
@@ -29,17 +43,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
             itemBuilder: ((context, index) {
               return GestureDetector(
                 onTap: () async {
-                  final result = await Navigator.push<int>(
-                      context,
-                      MaterialPageRoute(
-                          // navigasi ke detail page, tapi detail pagenya pakai template
-                          // scaffold kalo perlu bawa index bottomnavbar nya sekalian
-
-                          builder: (context) => OngoingDetail()));
-                  // abis page tujuan di pop, bawa indexnya ke parent
-                  // widget buat ngeganti body widget kalo user pencet
-                  // bottomnavbarnya waktu di page detail
-                  if (result is int) widget.changeNavbar(result);
+                  print("dd");
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
@@ -119,8 +123,23 @@ class _OnGoingPageState extends State<OnGoingPage> {
               );
             }),
           ))
-        ],
+        ]),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          type: BottomNavigationBarType.fixed,
+          onTap: (index) => {Navigator.pop(context, index)},
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.stacked_bar_chart), label: "Ongoing"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.layers_rounded), label: "Queue"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.stacked_bar_chart), label: "Finished"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person), label: "My Account")
+          ]),
     );
   }
 }

@@ -3,7 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class OngoingAppbar extends StatelessWidget {
-  const OngoingAppbar({Key? key}) : super(key: key);
+  const OngoingAppbar({Key? key, required this.title}) : super(key: key);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class OngoingAppbar extends StatelessWidget {
                     children: [
                       Align(
                         child: Container(
-                          child: const Text(
-                            "Ongoing",
+                          child: Text(
+                            "$title",
                             style: TextStyle(
                                 color: Color(0xFF2CBF6C), fontSize: 34),
                           ),

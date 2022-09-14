@@ -24,8 +24,6 @@ class _LayoutState extends State<Layout> {
 
   final itemContent = [
     HomePage(),
-    QueuePage(),
-    FinishedPage(),
     Center(child: Text("My Account")),
   ];
 
@@ -57,9 +55,17 @@ class _LayoutState extends State<Layout> {
           });
         });
       case 2:
-        return QueuePage();
+        return QueuePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
       case 3:
-        return FinishedPage();
+        return FinishedPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
       case 4:
         return Center(child: Text("My Account"));
       default:

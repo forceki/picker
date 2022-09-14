@@ -1,10 +1,11 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:picker/view/pages/finished/fineshed_list.dart';
 
 class FinishedPage extends StatefulWidget {
-  const FinishedPage({Key? key}) : super(key: key);
-
+  const FinishedPage({Key? key, required this.changeNavbar}) : super(key: key);
+  final Function(int) changeNavbar;
   @override
   State<FinishedPage> createState() => FinishedPageState();
 }
@@ -97,66 +98,74 @@ class FinishedPageState extends State<FinishedPage> {
               child: ListView.builder(
             itemCount: 6,
             itemBuilder: ((context, index) {
-              return Container(
-                margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                padding: const EdgeInsets.all(10),
-                height: 82,
-                decoration: const BoxDecoration(
-                    color: Color(0xFFF2F2F2),
-                    borderRadius: BorderRadius.all(Radius.circular(12))),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(
-                            child: const Text(
-                              "20220804A010000001",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500
+              return GestureDetector(
+                onTap: () async {
+                  final result = await Navigator.push<int>(
+                      context,
+                      MaterialPageRoute(
+                          // navigasi ke detail page, tapi detail pagenya pakai template
+                          // scaffold kalo perlu bawa index bottomnavbar nya sekalian
+
+                          builder: (context) => FinishedList()));
+                  // abis page tujuan di pop, bawa indexnya ke parent
+                  // widget buat ngeganti body widget kalo user pencet
+                  // bottomnavbarnya waktu di page detail
+                  if (result is int) widget.changeNavbar(result);
+                },
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                  padding: const EdgeInsets.all(10),
+                  height: 82,
+                  decoration: const BoxDecoration(
+                      color: Color(0xFFF2F2F2),
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Align(
+                              child: const Text(
+                                "20220804A010000001",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
-                          ),
-                          Align(
-                            child: const Text(
-                              "Art 88",
-                              style: TextStyle(
-                                color: Color(0xFF84D9B1),
-                                fontSize: 14
+                            Align(
+                              child: const Text(
+                                "Art 88",
+                                style: TextStyle(
+                                    color: Color(0xFF84D9B1), fontSize: 14),
                               ),
                             ),
-                          ),
-                          Align(
-                            child: const Text(
-                              "Qty 888",
-                              style: TextStyle(
-                                color: Color(0xFF84D9B1),
-                                fontSize: 14
+                            Align(
+                              child: const Text(
+                                "Qty 888",
+                                style: TextStyle(
+                                    color: Color(0xFF84D9B1), fontSize: 14),
                               ),
                             ),
-                          ),
-                          Align(
-                            child: const Text(
-                              "Received 88:88:88",
-                              style: TextStyle(
-                                color: Color(0xFF84D9B1),
-                                fontSize: 14
+                            Align(
+                              child: const Text(
+                                "Received 88:88:88",
+                                style: TextStyle(
+                                    color: Color(0xFF84D9B1), fontSize: 14),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.black,
-                        size: 24.0,
-                        semanticLabel: 'Continue',
-                      ),
-                    ]),
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.black,
+                          size: 24.0,
+                          semanticLabel: 'Continue',
+                        ),
+                      ]),
+                ),
               );
             }),
           ))

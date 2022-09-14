@@ -35,7 +35,9 @@ class _OngoingDetailState extends State<OngoingDetail> {
       ),
       body: Container(
         child: Column(children: [
-          OngoingAppbar(),
+          OngoingAppbar(
+            title: "Ongoing",
+          ),
           Expanded(
             child: ListView(children: [
               Container(
