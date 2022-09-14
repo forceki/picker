@@ -50,38 +50,234 @@ class _OngoingDetailState extends State<OngoingDetail> {
                       fit: BoxFit.fitHeight,
                     ),
                   )),
-              Container(
-                margin: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Location',
-                            style: TextStyle(
-                                color: Color(0xFF2CBF6C), fontSize: 12)),
-                        Text('B-02-CA-04-B01',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                        Text('B-02-CA-04-B02',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                        Text('B-02-CA-04-B03',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                        Text('B-02-CA-04-B04',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                      ],
-                    )
-                  ],
-                ),
-              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                        child: const Text(
+                          'Location',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'B-02-CA-04-B01',
+                          style: TextStyle(color: Colors.black, fontSize: 24)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'B-02-CA-04-B02',
+                          style: TextStyle(color: Colors.black, fontSize: 24)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'B-02-CA-04-B03',
+                          style: TextStyle(color: Colors.black, fontSize: 24)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'B-02-CA-04-B04',
+                          style: TextStyle(color: Colors.black, fontSize: 24)
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 16, 16, 0),
+                        child: const Text(
+                          'Quantity',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(right: 16),
+                        child: const Text(
+                          '88',
+                          style: TextStyle(color: Colors.black, fontSize: 60, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                    child: const Text(
+                      'Article Name',
+                      style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 16),
+                    width: 300,
+                    child: const Text(
+                      'HOODIE RED FLOWER MOTIV VERY LONG ARTICLE NAME',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: false,
+                      style: TextStyle(color: Colors.black, fontSize: 24)
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                    child: const Text(
+                      'Size',
+                      style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 16),
+                    child: const Text(
+                      'XL',
+                      style: TextStyle(color: Colors.black, fontSize: 24)
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                        child: const Text(
+                          'article code',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'barcode',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'category',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'sub category',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'color',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'gender',
+                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                        child: const Text(
+                          'IN.BLC-UC007',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          '00INUC0266',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'OUTER',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'HOODIE',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'RED',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          'NON',
+                          style: TextStyle(color: Colors.black, fontSize: 16)
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ]),
           ),
+           Container(
+                color: Colors.transparent,
+                child: ElevatedButton(
+                  child: Text('Scan & Mark as Complete'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(200, 40),
+                    primary: Color(0xFF2CBF6C),
+                    textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
+                  onPressed: () {
+                    print('dd');
+                  },
+                )
+              )
         ]),
+        
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
