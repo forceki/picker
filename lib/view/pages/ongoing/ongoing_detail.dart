@@ -53,12 +53,27 @@ class _OngoingDetailState extends State<OngoingDetail> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Text("ddssd"),
-                    ),
-                    Container(
-                      child: Text("ddssd"),
-                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Location',
+                            style: TextStyle(
+                                color: Color(0xFF2CBF6C), fontSize: 12)),
+                        Text('B-02-CA-04-B01',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
+                        Text('B-02-CA-04-B02',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
+                        Text('B-02-CA-04-B03',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
+                        Text('B-02-CA-04-B04',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
+                      ],
+                    )
                   ],
                 ),
               )
