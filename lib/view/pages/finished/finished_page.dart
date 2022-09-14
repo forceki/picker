@@ -16,78 +16,79 @@ class FinishedPageState extends State<FinishedPage> {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 10, bottom: 10),
+              alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+              child: const Text(
+                'Finished',
+                style: TextStyle(color: Color(0xFF2CBF6C), fontSize: 34),
+              )),
+          Container(
+            margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Should be left",
-                          ),
-                        ),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Picklist',
+                        style: TextStyle(
+                            color: Color(0xFF2CBF6C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w300),
                       ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "9999/999",
-                          ),
-                        ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '15',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Should be left",
-                          ),
-                        ),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Articles',
+                        style: TextStyle(
+                            color: Color(0xFF2CBF6C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w300),
                       ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "9999/999",
-                          ),
-                        ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '888',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Should be left",
-                          ),
-                        ),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Quantity',
+                        style: TextStyle(
+                            color: Color(0xFF2CBF6C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w300),
                       ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "9999/999",
-                          ),
-                        ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '888',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ],
             ),
@@ -97,36 +98,64 @@ class FinishedPageState extends State<FinishedPage> {
             itemCount: 6,
             itemBuilder: ((context, index) {
               return Container(
-                margin: const EdgeInsets.all(10),
-                height: 100,
+                margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                padding: const EdgeInsets.all(10),
+                height: 82,
                 decoration: const BoxDecoration(
-                    color: Colors.redAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                    color: Color(0xFFF2F2F2),
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(height: 50, width: 50, color: Colors.black),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              child: const Text(
-                                "9999/999",
+                            child: const Text(
+                              "20220804A010000001",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500
                               ),
                             ),
                           ),
                           Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              child: const Text(
-                                "9999/999",
+                            child: const Text(
+                              "Art 88",
+                              style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 14
+                              ),
+                            ),
+                          ),
+                          Align(
+                            child: const Text(
+                              "Qty 888",
+                              style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 14
+                              ),
+                            ),
+                          ),
+                          Align(
+                            child: const Text(
+                              "Received 88:88:88",
+                              style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 14
                               ),
                             ),
                           ),
                         ],
                       ),
-                      Container(height: 50, width: 50, color: Colors.black),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.black,
+                        size: 24.0,
+                        semanticLabel: 'Continue',
+                      ),
                     ]),
               );
             }),
