@@ -48,54 +48,70 @@ class _OnGoingPageState extends State<OnGoingPage> {
                       borderRadius: BorderRadius.all(Radius.circular(12))),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Row(children: [
+                          Container(
+                              margin: const EdgeInsets.only(right: 16),
+                              height: 64,
+                              width: 64,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFF84D9B1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12)))),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Align(
+                                child: Container(
+                                  width: 220,
+                                  child: const Text(
+                                    "B-02-CA-04-B01",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    softWrap: false,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                child: Container(
+                                  width: 220,
+                                  child: const Text(
+                                    "Article Name",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    softWrap: false,
+                                    style: TextStyle(
+                                        color: Color(0xFF2CBF6C), fontSize: 14),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                child: Container(
+                                  child: const Text(
+                                    "Size & Color",
+                                    style: TextStyle(
+                                        color: Color(0xFF2CBF6C), fontSize: 14),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
                         Container(
-                            height: 64, width: 64, color: Color(0xFF84D9B1)),
-                        Column(
-                          children: [
-                            Flexible(
-                              //alignment: Alignment.centerLeft,
-                              child: RichText(
-                                overflow: TextOverflow.ellipsis,
-                                text: const TextSpan(
-                                  text: "B-02-CA-04-B01, B-02-CA-03-B02",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                child: const Text(
-                                  "Article Name",
-                                  style: TextStyle(
-                                      color: Color(0xFF2CBF6C), fontSize: 14),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Container(
-                                child: const Text(
-                                  "Size & Color",
-                                  style: TextStyle(
-                                      color: Color(0xFF2CBF6C), fontSize: 14),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                            child: const Text(
-                          '88',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 48,
-                              fontWeight: FontWeight.w300),
-                        )),
+                          child: const Text(
+                            '88',
+                            style: TextStyle(
+                                fontSize: 48,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        )
                       ]),
                 ),
               );

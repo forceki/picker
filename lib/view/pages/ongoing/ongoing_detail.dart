@@ -34,30 +34,36 @@ class _OngoingDetailState extends State<OngoingDetail> {
         ],
       ),
       body: Container(
-        margin: EdgeInsets.all(10),
         child: Column(children: [
           OngoingAppbar(),
-          Container(
-              height: 380.0,
-              width: 380.0,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                      "https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
-                  fit: BoxFit.fitHeight,
+          Expanded(
+            child: ListView(children: [
+              Container(
+                  height: 380.0,
+                  width: 380.0,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
+                      fit: BoxFit.fitHeight,
+                    ),
+                  )),
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: Text("ddssd"),
+                    ),
+                    Container(
+                      child: Text("ddssd"),
+                    ),
+                  ],
                 ),
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                child: Text("ddssd"),
-              ),
-              Container(
-                child: Text("ddssd"),
               )
-            ],
-          )
+            ]),
+          ),
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(

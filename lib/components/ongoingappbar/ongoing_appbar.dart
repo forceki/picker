@@ -8,7 +8,7 @@ class OngoingAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(16, 12, 16, 36),
+        margin: const EdgeInsets.fromLTRB(16, 12, 16, 0),
         child: Column(
           children: [
             Row(
@@ -17,9 +17,10 @@ class OngoingAppbar extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: Alignment.centerLeft,
                         child: Container(
                           child: const Text(
                             "Ongoing",
@@ -29,7 +30,6 @@ class OngoingAppbar extends StatelessWidget {
                         ),
                       ),
                       Align(
-                        alignment: Alignment.centerLeft,
                         child: Container(
                           child: const Text(
                             "20220804A010000001",
@@ -51,88 +51,95 @@ class OngoingAppbar extends StatelessWidget {
                 )
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  //margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Articles",
-                            style: TextStyle(
-                                color: Color(0xFF2CBF6C), fontSize: 16),
+            Container(
+              margin: const EdgeInsets.fromLTRB(16, 12, 16, 36),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    //margin: const EdgeInsets.all(1.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "Articles",
+                              style: TextStyle(
+                                  color: Color(0xFF2CBF6C), fontSize: 16),
+                            ),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "88/888",
-                            style: TextStyle(color: Colors.black, fontSize: 24),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "88/888",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 24),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  //margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Quantity",
-                            style: TextStyle(
-                                color: Color(0xFF2CBF6C), fontSize: 16),
+                  Container(
+                    //margin: const EdgeInsets.all(1.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "Quantity",
+                              style: TextStyle(
+                                  color: Color(0xFF2CBF6C), fontSize: 16),
+                            ),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "888/8.888",
-                            style: TextStyle(color: Colors.black, fontSize: 24),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "888/8.888",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 24),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  //margin: const EdgeInsets.all(1.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "Duration",
-                            style: TextStyle(
-                                color: Color(0xFF2CBF6C), fontSize: 16),
+                  Container(
+                    //margin: const EdgeInsets.all(1.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "Duration",
+                              style: TextStyle(
+                                  color: Color(0xFF2CBF6C), fontSize: 16),
+                            ),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: const Text(
-                            "88:88:88",
-                            style: TextStyle(color: Colors.black, fontSize: 24),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: const Text(
+                              "88:88:88",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 24),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ));
