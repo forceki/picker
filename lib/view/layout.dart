@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/retry.dart';
 import 'package:picker/view/auth/login_page.dart';
 import 'package:picker/view/pages/finished/finished_page.dart';
 import 'package:picker/view/pages/home/home_page.dart';
@@ -23,7 +24,6 @@ class _LayoutState extends State<Layout> {
 
   final itemContent = [
     HomePage(),
-    OnGoingPage(),
     QueuePage(),
     FinishedPage(),
     Center(child: Text("My Account")),
@@ -43,6 +43,27 @@ class _LayoutState extends State<Layout> {
       setState(() {
         name = user['fullname'];
       });
+    }
+  }
+
+  Widget getContent() {
+    switch (currentIndex) {
+      case 0:
+        return HomePage();
+      case 1:
+        return OnGoingPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      case 2:
+        return QueuePage();
+      case 3:
+        return FinishedPage();
+      case 4:
+        return Center(child: Text("My Account"));
+      default:
+        return HomePage();
     }
   }
 
@@ -66,12 +87,12 @@ class _LayoutState extends State<Layout> {
           )
         ],
       ),
-      body: itemContent[currentIndex],
+      body: getContent(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: (index) => setState(() => currentIndex = index),
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.stacked_bar_chart), label: "Ongoing"),
