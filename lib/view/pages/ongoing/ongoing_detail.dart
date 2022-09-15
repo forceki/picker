@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:picker/components/ongoingappbar/ongoing_appbar.dart';
+import 'package:picker/view/pages/ongoing/ongoing_scan.dart';
 
 class OngoingDetail extends StatefulWidget {
   const OngoingDetail({Key? key}) : super(key: key);
@@ -12,6 +15,33 @@ class OngoingDetail extends StatefulWidget {
 
 class _OngoingDetailState extends State<OngoingDetail> {
   final int _currentIndex = 1;
+  String _scanBarcode = "nothing";
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> scanBarcodeNormal() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#000000', 'Cancel', false, ScanMode.BARCODE);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,38 +89,33 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                        child: const Text(
-                          'Location',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
-                        ),
+                        child: const Text('Location',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1), fontSize: 12)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'B-02-CA-04-B01',
-                          style: TextStyle(color: Colors.black, fontSize: 24)
-                        ),
+                        child: const Text('B-02-CA-04-B01',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'B-02-CA-04-B02',
-                          style: TextStyle(color: Colors.black, fontSize: 24)
-                        ),
+                        child: const Text('B-02-CA-04-B02',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'B-02-CA-04-B03',
-                          style: TextStyle(color: Colors.black, fontSize: 24)
-                        ),
+                        child: const Text('B-02-CA-04-B03',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'B-02-CA-04-B04',
-                          style: TextStyle(color: Colors.black, fontSize: 24)
-                        ),
+                        child: const Text('B-02-CA-04-B04',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 24)),
                       ),
                     ],
                   ),
@@ -99,17 +124,17 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(0, 16, 16, 0),
-                        child: const Text(
-                          'Quantity',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
-                        ),
+                        child: const Text('Quantity',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1), fontSize: 12)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(right: 16),
-                        child: const Text(
-                          '88',
-                          style: TextStyle(color: Colors.black, fontSize: 60, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('88',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 60,
+                                fontWeight: FontWeight.w300)),
                       ),
                     ],
                   )
@@ -120,21 +145,19 @@ class _OngoingDetailState extends State<OngoingDetail> {
                 children: [
                   Container(
                     margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                    child: const Text(
-                      'Article Name',
-                      style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
-                    ),
+                    child: const Text('Article Name',
+                        style:
+                            TextStyle(color: Color(0xFF84D9B1), fontSize: 12)),
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
                     width: 300,
                     child: const Text(
-                      'HOODIE RED FLOWER MOTIV VERY LONG ARTICLE NAME',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                      style: TextStyle(color: Colors.black, fontSize: 24)
-                    ),
+                        'HOODIE RED FLOWER MOTIV VERY LONG ARTICLE NAME',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: false,
+                        style: TextStyle(color: Colors.black, fontSize: 24)),
                   ),
                 ],
               ),
@@ -143,17 +166,14 @@ class _OngoingDetailState extends State<OngoingDetail> {
                 children: [
                   Container(
                     margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                    child: const Text(
-                      'Size',
-                      style: TextStyle(color: Color(0xFF84D9B1), fontSize: 12)
-                    ),
+                    child: const Text('Size',
+                        style:
+                            TextStyle(color: Color(0xFF84D9B1), fontSize: 12)),
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
-                    child: const Text(
-                      'XL',
-                      style: TextStyle(color: Colors.black, fontSize: 24)
-                    ),
+                    child: const Text('XL',
+                        style: TextStyle(color: Colors.black, fontSize: 24)),
                   ),
                 ],
               ),
@@ -166,45 +186,51 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                        child: const Text(
-                          'article code',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('article code',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'barcode',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('barcode',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'category',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('category',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'sub category',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('sub category',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'color',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('color',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'gender',
-                          style: TextStyle(color: Color(0xFF84D9B1), fontSize: 16, fontWeight: FontWeight.w300)
-                        ),
+                        child: const Text('gender',
+                            style: TextStyle(
+                                color: Color(0xFF84D9B1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300)),
                       ),
                     ],
                   ),
@@ -213,45 +239,39 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                        child: const Text(
-                          'IN.BLC-UC007',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('IN.BLC-UC007',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          '00INUC0266',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('00INUC0266',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'OUTER',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('OUTER',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'HOODIE',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('HOODIE',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'RED',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('RED',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text(
-                          'NON',
-                          style: TextStyle(color: Colors.black, fontSize: 16)
-                        ),
+                        child: const Text('NON',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                     ],
                   )
@@ -259,25 +279,22 @@ class _OngoingDetailState extends State<OngoingDetail> {
               ),
             ]),
           ),
-           Container(
-                color: Colors.transparent,
-                child: ElevatedButton(
-                  child: Text('Scan & Mark as Complete'),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(200, 40),
-                    primary: Color(0xFF2CBF6C),
-                    textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                  onPressed: () {
-                    print('dd');
-                  },
-                )
-              )
+          Container(
+              child: ElevatedButton(
+            child: Text('Scan & Mark as Complete'),
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(200, 40),
+              primary: Color(0xFF2CBF6C),
+              textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
+            ),
+            onPressed: () async {
+              scanBarcodeNormal();
+            },
+          ))
         ]),
-        
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
