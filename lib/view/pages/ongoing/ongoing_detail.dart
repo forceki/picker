@@ -284,6 +284,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
             child: Text('Scan & Mark as Complete'),
             style: ElevatedButton.styleFrom(
               minimumSize: Size(200, 40),
+              shadowColor: Colors.transparent,
               primary: Color(0xFF2CBF6C),
               textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               shape: RoundedRectangleBorder(

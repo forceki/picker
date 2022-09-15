@@ -13,11 +13,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
+    return SingleChildScrollView(
+      child: Column(
         children: [
           Center(
-              child: Container(
+            child: Container(
             padding: EdgeInsets.only(top: 24),
             child: const Text(
               "Ongoing Picklist",
@@ -131,7 +131,8 @@ class _HomePageState extends State<HomePage> {
             child: ElevatedButton(
               child: Text('Continue'),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(105, 40),
+                shadowColor: Colors.transparent,
+                fixedSize: Size(105, 40),
                 primary: Color(0xFF2CBF6C),
                 textStyle:
                   TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
@@ -140,19 +141,54 @@ class _HomePageState extends State<HomePage> {
                   ),
               ),
               onPressed: () {
-                print('dd');
+                
               },
             )
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
                 children: [
                   Container(
                     height: 182,
                     width: 182,
+                    margin: EdgeInsets.only(bottom: 25),
+                    padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(color: Color(0xFF2CBF6C), borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 24),
+                          child: Text(
+                            'Queue',
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            '88 picklist',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            '888 articles',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            '8.888 pieces',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                      ]
+                    ),
                   )
                 ],
               ),
@@ -161,7 +197,42 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 182,
                     width: 182,
+                    margin: EdgeInsets.only(bottom: 25),
+                    padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(color: Color(0xFFF2F2F2), borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 24),
+                          child: Text(
+                            'Finished',
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            '88 picklist',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            '888 articles',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            '8.888 pieces',
+                            style: TextStyle(color: Colors.black, fontSize: 24),
+                          ),
+                        ),
+                      ]
+                    ),
                   )
                 ],
               )
