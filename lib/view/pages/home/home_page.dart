@@ -4,7 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required this.changeNavbar}) : super(key: key);
+
+  final Function(int) changeNavbar;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           Center(
-            child: Container(
+              child: Container(
             padding: EdgeInsets.only(top: 24),
             child: const Text(
               "Ongoing Picklist",
@@ -126,37 +128,36 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           Container(
-            color: Colors.transparent,
-            margin: EdgeInsets.fromLTRB(0, 25, 0, 30),
-            child: ElevatedButton(
-              child: Text('Continue'),
-              style: ElevatedButton.styleFrom(
-                shadowColor: Colors.transparent,
-                fixedSize: Size(105, 40),
-                primary: Color(0xFF2CBF6C),
-                textStyle:
-                  TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              color: Colors.transparent,
+              margin: EdgeInsets.fromLTRB(0, 25, 0, 30),
+              child: ElevatedButton(
+                child: Text('Continue'),
+                style: ElevatedButton.styleFrom(
+                  shadowColor: Colors.transparent,
+                  fixedSize: Size(105, 40),
+                  primary: Color(0xFF2CBF6C),
+                  textStyle:
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
-              ),
-              onPressed: () {
-                
-              },
-            )
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    height: 182,
-                    width: 182,
-                    margin: EdgeInsets.only(bottom: 25),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(color: Color(0xFF2CBF6C), borderRadius: BorderRadius.all(Radius.circular(12))),
-                    child: Column(
+                ),
+                onPressed: () {
+                  widget.changeNavbar(1);
+                },
+              )),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(
+              children: [
+                Container(
+                  height: 182,
+                  width: 182,
+                  margin: EdgeInsets.only(bottom: 25),
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF2CBF6C),
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -164,7 +165,10 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.only(bottom: 24),
                           child: Text(
                             'Queue',
-                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 24),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24),
                           ),
                         ),
                         Container(
@@ -187,20 +191,21 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(color: Colors.black, fontSize: 24),
                           ),
                         ),
-                      ]
-                    ),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 182,
-                    width: 182,
-                    margin: EdgeInsets.only(bottom: 25),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(color: Color(0xFFF2F2F2), borderRadius: BorderRadius.all(Radius.circular(12))),
-                    child: Column(
+                      ]),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                  height: 182,
+                  width: 182,
+                  margin: EdgeInsets.only(bottom: 25),
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      color: Color(0xFFF2F2F2),
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -208,7 +213,10 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.only(bottom: 24),
                           child: Text(
                             'Finished',
-                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 24),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24),
                           ),
                         ),
                         Container(
@@ -231,13 +239,11 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(color: Colors.black, fontSize: 24),
                           ),
                         ),
-                      ]
-                    ),
-                  )
-                ],
-              )
-            ]
-          )
+                      ]),
+                )
+              ],
+            )
+          ])
         ],
       ),
     );

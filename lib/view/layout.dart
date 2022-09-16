@@ -23,7 +23,6 @@ class _LayoutState extends State<Layout> {
   int currentIndex = 0;
 
   final itemContent = [
-    HomePage(),
     Center(child: Text("My Account")),
   ];
 
@@ -47,7 +46,11 @@ class _LayoutState extends State<Layout> {
   Widget getContent() {
     switch (currentIndex) {
       case 0:
-        return HomePage();
+        return HomePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
       case 1:
         return OnGoingPage(changeNavbar: (index) {
           setState(() {
@@ -69,7 +72,11 @@ class _LayoutState extends State<Layout> {
       case 4:
         return Center(child: Text("My Account"));
       default:
-        return HomePage();
+        return HomePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
     }
   }
 
