@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:picker/components/generate_barcode.dart';
 import 'package:picker/components/ongoingappbar/ongoing_appbar.dart';
 import 'package:picker/view/pages/ongoing/ongoing_scan.dart';
 
@@ -292,7 +293,9 @@ class _OngoingDetailState extends State<OngoingDetail> {
               ),
             ),
             onPressed: () async {
-              scanBarcodeNormal();
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>
+              GenerateQrCode(data: "uus ganteng")
+              ));
             },
           ))
         ]),
