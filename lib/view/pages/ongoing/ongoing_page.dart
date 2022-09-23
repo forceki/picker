@@ -55,7 +55,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
                         children: [
                           Row(children: [
                             Container(
-                                margin: const EdgeInsets.only(right: 16),
+                                margin: const EdgeInsets.only(right: 10),
                                 height: 64,
                                 width: 64,
                                 decoration: const BoxDecoration(
@@ -106,43 +106,30 @@ class _OnGoingPageState extends State<OnGoingPage> {
                                   ),
                                 ),
                               ],
-                            )
-                          ]),
-                          Container(
-                            child: const Text(
-                              '88',
-                              style: TextStyle(
-                                  fontSize: 48,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w300),
                             ),
-                          )
+                          ]),
+                          Text(
+                            '88',
+                            style: TextStyle(
+                                fontSize: 48,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          // Container(
+                          //   child: const Text(
+                          //     '88',
+                          //     style: TextStyle(
+                          //         fontSize: 48,
+                          //         color: Colors.black,
+                          //         fontWeight: FontWeight.w300),
+                          //   ),
+                          // )
                         ]),
                   ),
                 );
               }),
             ),
           ),
-          Container(
-              child: ElevatedButton(
-            child: Text('Scan & Mark as Complete'),
-            style: ElevatedButton.styleFrom(
-              minimumSize: Size(200, 40),
-              shadowColor: Colors.transparent,
-              primary: Color(0xFF2CBF6C),
-              textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100),
-              ),
-            ),
-            onPressed: () async {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          GenerateQrCode(data: "uus ganteng")));
-            },
-          ))
         ],
       ),
     );

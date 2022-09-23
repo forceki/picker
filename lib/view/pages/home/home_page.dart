@@ -143,102 +143,108 @@ class _HomePageState extends State<HomePage> {
                 },
               )),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Column(
-              children: [
-                Container(
-                  height: 182,
-                  width: 182,
-                  margin: EdgeInsets.only(bottom: 25),
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color(0xFF2CBF6C),
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 24),
-                          child: Text(
-                            'Queue',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            '88 picklist',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            '888 articles',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            '8.888 pieces',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                      ]),
-                )
-              ],
+            Expanded(
+              child: LayoutBuilder(
+                  builder: (context, constraints) => Container(
+                        // height: 182,
+                        // width: 182,
+                        margin: EdgeInsets.fromLTRB(16, 0, 16, 25),
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            color: Color(0xFF2CBF6C),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12))),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 24),
+                                child: Text(
+                                  'Queue',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                                child: Text(
+                                  '88 picklist',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                                child: Text(
+                                  '888 articles',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  '8.888 pieces',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                            ]),
+                      )),
             ),
-            Column(
-              children: [
-                Container(
-                  height: 182,
-                  width: 182,
-                  margin: EdgeInsets.only(bottom: 25),
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color(0xFFF2F2F2),
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 24),
-                          child: Text(
-                            'Finished',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            '88 picklist',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            '888 articles',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            '8.888 pieces',
-                            style: TextStyle(color: Colors.black, fontSize: 24),
-                          ),
-                        ),
-                      ]),
-                )
-              ],
-            )
+            Expanded(
+              child: LayoutBuilder(
+                  builder: (context, constraints) => Container(
+                        // height: 182,
+                        // width: 182,
+                        margin: EdgeInsets.fromLTRB(16, 0, 16, 25),
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFF2F2F2),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12))),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 24),
+                                child: Text(
+                                  'Finished',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                                child: Text(
+                                  '88 picklist',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                                child: Text(
+                                  '888 articles',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  '8.888 pieces',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                            ]),
+                      )),
+            ),
           ])
         ],
       ),
