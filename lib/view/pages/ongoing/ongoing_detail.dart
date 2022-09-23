@@ -282,22 +282,20 @@ class _OngoingDetailState extends State<OngoingDetail> {
           ),
           Container(
               child: ElevatedButton(
-            child: Text('Scan & Mark as Complete'),
-            style: ElevatedButton.styleFrom(
-              minimumSize: Size(200, 40),
-              shadowColor: Colors.transparent,
-              primary: Color(0xFF2CBF6C),
-              textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100),
-              ),
-            ),
-            onPressed: () async {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>
-              GenerateQrCode(data: "uus ganteng")
-              ));
-            },
-          ))
+                  child: Text('Scan & Mark as Complete'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(200, 40),
+                    shadowColor: Colors.transparent,
+                    primary: Color(0xFF2CBF6C),
+                    textStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
+                  onPressed: () async {
+                    scanBarcodeNormal();
+                  }))
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(

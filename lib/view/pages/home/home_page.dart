@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:picker/components/chart.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.changeNavbar}) : super(key: key);
@@ -39,12 +40,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Container(
-            height: 240,
-            margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-            decoration: const BoxDecoration(
-                color: Colors.black, shape: BoxShape.circle),
-          ),
+          ChartWidget(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -14,6 +14,9 @@ dependencies:
   syncfusion_flutter_charts: ^19.1.54
   flutter_barcode_scanner: ^2.0.0
   qr_flutter: ^4.0.0
+  epson_epos: ^0.0.2
+  esc_pos_utils: ^1.1.0
+
 
 dev_dependencies:
   flutter_test:
