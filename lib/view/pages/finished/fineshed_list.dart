@@ -62,7 +62,7 @@ class _FinishedListState extends State<FinishedList> {
                               height: 64,
                               width: 64,
                               decoration: const BoxDecoration(
-                                  color: Color(0xFF84D9B1),
+                                  color: Color(0xFF2CBF6C),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(12)))),
                           Column(

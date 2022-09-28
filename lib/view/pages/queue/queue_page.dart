@@ -142,21 +142,21 @@ class _QueuePageState extends State<QueuePage> {
                               child: const Text(
                                 "Art 88",
                                 style: TextStyle(
-                                    color: Color(0xFF84D9B1), fontSize: 14),
+                                    color: Color(0xFF2CBF6C), fontSize: 14),
                               ),
                             ),
                             Align(
                               child: const Text(
                                 "Qty 888",
                                 style: TextStyle(
-                                    color: Color(0xFF84D9B1), fontSize: 14),
+                                    color: Color(0xFF2CBF6C), fontSize: 14),
                               ),
                             ),
                             Align(
                               child: const Text(
                                 "Received 88:88:88",
                                 style: TextStyle(
-                                    color: Color(0xFF84D9B1), fontSize: 14),
+                                    color: Color(0xFF2CBF6C), fontSize: 14),
                               ),
                             ),
                           ],
@@ -171,7 +171,7 @@ class _QueuePageState extends State<QueuePage> {
                 ),
               );
             }),
-          ))
+          )),
         ],
       ),
     );

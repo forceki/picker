@@ -9,6 +9,7 @@ import 'package:picker/view/pages/finished/finished_page.dart';
 import 'package:picker/view/pages/home/home_page.dart';
 import 'package:picker/view/pages/ongoing/ongoing_page.dart';
 import 'package:picker/view/pages/queue/queue_page.dart';
+import 'package:picker/view/pages/account/account_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Layout extends StatefulWidget {
@@ -70,7 +71,11 @@ class _LayoutState extends State<Layout> {
           });
         });
       case 4:
-        return Center(child: Text("My Account"));
+        return AccountPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
       default:
         return HomePage(changeNavbar: (index) {
           setState(() {

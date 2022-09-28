@@ -227,7 +227,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
     final generator = Generator(PaperSize.mm58, profile);
     List<int> bytes = [];
 
-    bytes += generator.text('Success !',
+    bytes += generator.text('Success!',
         styles: const PosStyles(align: PosAlign.center));
     bytes += generator.feed(2);
     bytes +=
@@ -242,7 +242,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
 
     bytes += generator.row([
       PosColumn(
-        text: 'Acticles',
+        text: 'Articles',
         width: 6,
         styles: const PosStyles(align: PosAlign.center),
       ),
@@ -267,9 +267,9 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
 
     bytes += generator.text('Text size 200%',
         styles: const PosStyles(
-          height: PosTextSize.size2,
-          width: PosTextSize.size2,
-        ));
+            height: PosTextSize.size2,
+            width: PosTextSize.size2,
+            align: PosAlign.center));
 
     bytes += generator.reset();
     bytes += generator.cut();
@@ -282,7 +282,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
     List<Map<String, dynamic>> commands = [];
     commands.add(command.addTextAlign(EpsonEPOSTextAlign.LEFT));
     commands.add(command.addFeedLine(4));
-    commands.add(command.append('PRINT TESTE OK!\n'));
+    commands.add(command.append('PRINT TEST OK!\n'));
     commands.add(command.rawData(Uint8List.fromList(await _customEscPos())));
     commands.add(command.addFeedLine(4));
     commands.add(command.addCut(EpsonEPOSCut.CUT_FEED));

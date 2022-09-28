@@ -156,9 +156,9 @@ class _PrintState extends State<Print> {
 
     bytes += generator.text('Text size 200%',
         styles: const PosStyles(
-          height: PosTextSize.size2,
-          width: PosTextSize.size2,
-        ));
+            height: PosTextSize.size2,
+            width: PosTextSize.size2,
+            align: PosAlign.center));
 
     bytes += generator.reset();
     bytes += generator.cut();
@@ -171,7 +171,7 @@ class _PrintState extends State<Print> {
     List<Map<String, dynamic>> commands = [];
     commands.add(command.addTextAlign(EpsonEPOSTextAlign.LEFT));
     commands.add(command.addFeedLine(4));
-    commands.add(command.append('PRINT TESTE OK!\n'));
+    commands.add(command.append('PRINT TEST OK!\n'));
     commands.add(command.rawData(Uint8List.fromList(await _customEscPos())));
     commands.add(command.addFeedLine(4));
     commands.add(command.addCut(EpsonEPOSCut.CUT_FEED));

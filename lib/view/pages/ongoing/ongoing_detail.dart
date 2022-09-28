@@ -92,7 +92,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                         child: const Text('Location',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1), fontSize: 12)),
+                                color: Color(0xFF2CBF6C), fontSize: 12)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
@@ -127,7 +127,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.fromLTRB(0, 16, 16, 0),
                         child: const Text('Quantity',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1), fontSize: 12)),
+                                color: Color(0xFF2CBF6C), fontSize: 12)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(right: 16),
@@ -148,7 +148,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                     child: const Text('Article Name',
                         style:
-                            TextStyle(color: Color(0xFF84D9B1), fontSize: 12)),
+                            TextStyle(color: Color(0xFF2CBF6C), fontSize: 12)),
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
@@ -169,7 +169,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                     child: const Text('Size',
                         style:
-                            TextStyle(color: Color(0xFF84D9B1), fontSize: 12)),
+                            TextStyle(color: Color(0xFF2CBF6C), fontSize: 12)),
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
@@ -189,7 +189,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                         child: const Text('article code',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
@@ -197,7 +197,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('barcode',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
@@ -205,7 +205,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('category',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
@@ -213,7 +213,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('sub category',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
@@ -221,7 +221,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('color',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
@@ -229,7 +229,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('gender',
                             style: TextStyle(
-                                color: Color(0xFF84D9B1),
+                                color: Color(0xFF2CBF6C),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300)),
                       ),
