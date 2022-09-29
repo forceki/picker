@@ -136,7 +136,7 @@ class LoginPageState extends State<LoginPage> {
     };
 
     var res = await Api().auth(data, 'auth');
-
+    
     var body = json.decode(res.body);
     var success = body['success'];
     log("data : $success");
