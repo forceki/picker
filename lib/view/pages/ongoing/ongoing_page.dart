@@ -60,7 +60,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
                                 height: 64,
                                 width: 64,
                                 decoration: const BoxDecoration(
-                                    color: Color(0xFF2CBF6C),
+                                    color: Color(0xFF84D9B1),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(12)))),
                             Column(
