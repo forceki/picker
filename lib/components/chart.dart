@@ -23,9 +23,11 @@ class _ChartWidgetState extends State<ChartWidget> {
   @override
   Widget build(BuildContext context) {
     return SfCircularChart(
+      palette: <Color>[Colors.black, Color(0xFF2CBF6C)],
       series: <CircularSeries>[
         RadialBarSeries<GDPData, String>(
             dataSource: _chartData,
+            pointColorMapper: (GDPData data, _) => data.color,
             xValueMapper: (GDPData data, _) => data.continent,
             yValueMapper: (GDPData data, _) => data.gdp,
             dataLabelSettings: DataLabelSettings(isVisible: true))
@@ -35,15 +37,16 @@ class _ChartWidgetState extends State<ChartWidget> {
 
   List<GDPData> getChartData() {
     final List<GDPData> chartData = [
-      GDPData('Jan', 35),
-      GDPData('Feb', 28),
+      GDPData('Jan', 35, Color(0xFF2CBF6C)),
+      GDPData('Feb', 28, Colors.black),
     ];
     return chartData;
   }
 }
 
 class GDPData {
-  GDPData(this.continent, this.gdp);
+  GDPData(this.continent, this.gdp, this.color);
   final String continent;
   final int gdp;
+  final color;
 }

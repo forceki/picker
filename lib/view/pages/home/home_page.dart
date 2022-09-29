@@ -181,14 +181,14 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   '888 articles',
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 24),
+                                      color: Colors.black, fontSize: 16),
                                 ),
                               ),
                               Container(
                                 child: Text(
                                   '8.888 pieces',
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 24),
+                                      color: Colors.black, fontSize: 16),
                                 ),
                               ),
                             ]),
@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, constraints) => Container(
                         // height: 182,
                         // width: 182,
-                        margin: EdgeInsets.fromLTRB(16, 0, 16, 25),
+                        margin: EdgeInsets.fromLTRB(0, 0, 16, 25),
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                             color: Color(0xFFF2F2F2),
@@ -232,14 +232,14 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   '888 articles',
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 24),
+                                      color: Colors.black, fontSize: 16),
                                 ),
                               ),
                               Container(
                                 child: Text(
                                   '8.888 pieces',
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 24),
+                                      color: Colors.black, fontSize: 16),
                                 ),
                               ),
                             ]),
