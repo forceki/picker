@@ -139,7 +139,7 @@ class LoginPageState extends State<LoginPage> {
     
     var body = json.decode(res.body);
     var success = body['success'];
-    log("data : $success");
+    log("data : $body");
     if (success == 1) {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', json.encode(body['access_code']));

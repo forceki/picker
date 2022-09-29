@@ -39,7 +39,7 @@ class _LayoutState extends State<Layout> {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       setState(() {
-        name = user['fullname'];
+        name = user['username'];
       });
     }
   }
