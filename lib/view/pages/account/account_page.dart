@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:picker/components/chart.dart';
 import 'package:picker/view/pages/account/changePw.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:picker/view/auth/login_page.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key, required this.changeNavbar}) : super(key: key);
@@ -13,6 +16,25 @@ class AccountPage extends StatefulWidget {
 }
 
 class AccountPageState extends State<AccountPage> {
+  String name = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  _loadUserData() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      setState(() {
+        name = user['username'];
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -103,44 +125,57 @@ class AccountPageState extends State<AccountPage> {
             ),
           ),
         ),
-        Container(
-          padding: const EdgeInsets.all(10),
-          margin: const EdgeInsets.fromLTRB(33, 0, 33, 20),
-          height: 70,
-          decoration: const BoxDecoration(
-            color: Color(0xFFF3F4F8),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.only(right: 10),
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: const Icon(
-                      Icons.exit_to_app_rounded,
-                      color: Color((0xFFD63333)),
+        GestureDetector(
+          onTap: () {
+            logout();
+          },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.fromLTRB(33, 0, 33, 20),
+            height: 70,
+            decoration: const BoxDecoration(
+              color: Color(0xFFF3F4F8),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(right: 10),
+                      height: 50,
+                      width: 50,
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: const Icon(Icons.exit_to_app_rounded,
+                          color: Color((0xFFD63333))),
                     ),
-                  ),
-                  Text(
-                    'Log Out',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
-                  )
-                ],
-              ),
-              Icon(Icons.arrow_forward_ios_rounded, color: Color((0xFFD63333)))
-            ],
+                    Text(
+                      'Log Out',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    )
+                  ],
+                ),
+                Icon(Icons.arrow_forward_ios_rounded,
+                    color: Color((0xFFD63333)))
+              ],
+            ),
           ),
         ),
       ],
     ));
+  }
+
+  void logout() async {
+    print("logit");
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.remove('user');
+    localStorage.remove('token');
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

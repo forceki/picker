@@ -15,23 +15,23 @@ class _FinishedListState extends State<FinishedList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     'Logged in uus',
-      //     style: TextStyle(fontSize: 16, color: Colors.black),
-      //   ),
-      //   automaticallyImplyLeading: false,
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   actions: [
-      //     IconButton(
-      //       icon: Icon(Icons.power_settings_new, color: Colors.black),
-      //       onPressed: () {
-      //         print("anu");
-      //       },
-      //     )
-      //   ],
-      // ),
+      appBar: AppBar(
+        title: Text(
+          'Logged in uus',
+          style: TextStyle(fontSize: 16, color: Colors.black),
+        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Icons.power_settings_new, color: Colors.black),
+        //     onPressed: () {
+        //       print("anu");
+        //     },
+        //   )
+        // ],
+      ),
       body: Container(
         child: Column(children: [
           OngoingAppbar(
