@@ -20,9 +20,9 @@ class _ChangePwState extends State<ChangePw> {
   FocusNode cpwFocus = new FocusNode();
   FocusNode npwFocus = new FocusNode();
   FocusNode confFocus = new FocusNode();
-  bool _cpwVisible = false;
-  bool _npwVisible = false;
-  bool _confVisible = false;
+  bool _cpwVisible = true;
+  bool _npwVisible = true;
+  bool _confVisible = true;
 
   showHide() {
     setState(() {
