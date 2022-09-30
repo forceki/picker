@@ -96,14 +96,14 @@ class _LayoutState extends State<Layout> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.power_settings_new, color: Colors.black),
-            onPressed: () {
-              logout();
-            },
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Icons.power_settings_new, color: Colors.black),
+        //     onPressed: () {
+        //       logout();
+        //     },
+        //   )
+        // ],
       ),
       body: getContent(),
       bottomNavigationBar: BottomNavigationBar(
