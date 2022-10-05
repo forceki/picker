@@ -64,6 +64,7 @@ class LoginPageState extends State<LoginPage> {
               margin: const EdgeInsets.fromLTRB(40, 75, 40, 0),
               child: TextField(
                 controller: nameController,
+                textInputAction: TextInputAction.next,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF2CBF6C)),
@@ -82,6 +83,7 @@ class LoginPageState extends State<LoginPage> {
               child: TextFormField(
                 focusNode: myFocusNode,
                 controller: passwordController,
+                textInputAction: TextInputAction.next,
                 obscureText: _secureText,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -108,7 +110,7 @@ class LoginPageState extends State<LoginPage> {
                 height: 50,
                 margin: const EdgeInsets.fromLTRB(40, 20, 40, 0),
                 child: ElevatedButton(
-                  child: Text(_isLoading ? 'Please wait ...' : 'Sign In'),
+                  child: Text(_isLoading ? 'Please wait...' : 'Sign In'),
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF2CBF6C),
                     textStyle: TextStyle(fontSize: 20),

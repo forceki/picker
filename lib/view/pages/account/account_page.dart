@@ -119,7 +119,7 @@ class AccountPageState extends State<AccountPage> {
                     )
                   ],
                 ),
-                Icon(Icons.arrow_forward_ios_rounded,
+                Icon(Icons.adaptive.arrow_back_rounded,
                     color: Color((0xFF2CBF6C)))
               ],
             ),
@@ -160,7 +160,7 @@ class AccountPageState extends State<AccountPage> {
                     )
                   ],
                 ),
-                Icon(Icons.arrow_forward_ios_rounded,
+                Icon(Icons.adaptive.arrow_back_rounded,
                     color: Color((0xFFD63333)))
               ],
             ),
