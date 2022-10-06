@@ -48,7 +48,7 @@ class _ChangePwState extends State<ChangePw> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Logged in uus',
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
@@ -84,20 +84,20 @@ class _ChangePwState extends State<ChangePw> {
               obscureText: _cpwVisible,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 labelText: "Current Password",
-                labelStyle: TextStyle(color: Color(0xFF2CBF6C)),
+                labelStyle: const TextStyle(color: Color(0xFF2CBF6C)),
                 suffixIcon: IconButton(
                   onPressed: showHide,
                   icon: Icon(
                     _cpwVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Color(0xFF2CBF6C),
+                    color: const Color(0xFF2CBF6C),
                   ),
                 ),
               ),
@@ -111,20 +111,20 @@ class _ChangePwState extends State<ChangePw> {
               obscureText: _npwVisible,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 labelText: "New Password",
-                labelStyle: TextStyle(color: Color(0xFF2CBF6C)),
+                labelStyle: const TextStyle(color: Color(0xFF2CBF6C)),
                 suffixIcon: IconButton(
                   onPressed: showHide2,
                   icon: Icon(
                     _npwVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Color(0xFF2CBF6C),
+                    color: const Color(0xFF2CBF6C),
                   ),
                 ),
               ),
@@ -138,20 +138,20 @@ class _ChangePwState extends State<ChangePw> {
               obscureText: _confVisible,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                    borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                     borderRadius: BorderRadius.circular(10)),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 labelText: "Confirm New Password",
-                labelStyle: TextStyle(color: Color(0xFF2CBF6C)),
+                labelStyle: const TextStyle(color: Color(0xFF2CBF6C)),
                 suffixIcon: IconButton(
                   onPressed: showHide3,
                   icon: Icon(
                     _confVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Color(0xFF2CBF6C),
+                    color: const Color(0xFF2CBF6C),
                   ),
                 ),
               ),
@@ -163,8 +163,8 @@ class _ChangePwState extends State<ChangePw> {
               child: ElevatedButton(
                 child: Text(_isLoading ? 'Please wait ...' : 'Change Password'),
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF2CBF6C),
-                  textStyle: TextStyle(fontSize: 20),
+                  primary: const Color(0xFF2CBF6C),
+                  textStyle: const TextStyle(fontSize: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

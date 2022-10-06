@@ -16,7 +16,7 @@ class _QueueListState extends State<QueueList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Logged in uus',
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
@@ -34,7 +34,7 @@ class _QueueListState extends State<QueueList> {
       ),
       body: Container(
         child: Column(children: [
-          OngoingAppbar(
+          const OngoingAppbar(
             title: "Queue",
           ),
           Expanded(
@@ -103,7 +103,7 @@ class _QueueListState extends State<QueueList> {
                           ),
                         ],
                       ),
-                      Text(
+                      const Text(
                         '88',
                         style: TextStyle(
                             fontSize: 48,

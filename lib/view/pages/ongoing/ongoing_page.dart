@@ -100,7 +100,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           '88',
                           style: TextStyle(
                               fontSize: 48,
@@ -120,7 +120,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(200, 40),
               shadowColor: Colors.transparent,
-              backgroundColor: Color(0xFF2CBF6C),
+              backgroundColor: const Color(0xFF2CBF6C),
               textStyle:
                   const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               shape: RoundedRectangleBorder(

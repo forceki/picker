@@ -24,7 +24,7 @@ class _LayoutState extends State<Layout> {
   int currentIndex = 0;
 
   final itemContent = [
-    Center(child: Text("My Account")),
+    const Center(child: Text("My Account")),
   ];
 
   @override
@@ -91,7 +91,7 @@ class _LayoutState extends State<Layout> {
       appBar: AppBar(
         title: Text(
           'Logged in $name',
-          style: TextStyle(fontSize: 16, color: Colors.black),
+          style: const TextStyle(fontSize: 16, color: Colors.black),
         ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -130,6 +130,6 @@ class _LayoutState extends State<Layout> {
     localStorage.remove('user');
     localStorage.remove('token');
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }

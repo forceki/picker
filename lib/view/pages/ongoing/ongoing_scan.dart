@@ -17,7 +17,7 @@ class _OngoingScanState extends State<OngoingScan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Logged in uus',
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
@@ -35,10 +35,10 @@ class _OngoingScanState extends State<OngoingScan> {
       ),
       body: Container(
         child: Column(children: [
-          OngoingAppbar(title: "Ongoing"),
+          const OngoingAppbar(title: "Ongoing"),
           Expanded(
               child: ListView(
-            children: [ScanBarcode()],
+            children: const [ScanBarcode()],
           ))
         ]),
       ),

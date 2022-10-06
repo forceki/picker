@@ -67,15 +67,15 @@ class LoginPageState extends State<LoginPage> {
                 textInputAction: TextInputAction.next,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                        borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                        borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                         borderRadius: BorderRadius.circular(10)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: "Username",
-                    labelStyle: TextStyle(color: Color(0xFF2CBF6C))),
+                    labelStyle: const TextStyle(color: Color(0xFF2CBF6C))),
               ),
             ),
             Container(
@@ -87,20 +87,20 @@ class LoginPageState extends State<LoginPage> {
                 obscureText: _secureText,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                      borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                       borderRadius: BorderRadius.circular(10)),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF2CBF6C)),
+                      borderSide: const BorderSide(color: Color(0xFF2CBF6C)),
                       borderRadius: BorderRadius.circular(10)),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
                   labelText: "Password",
-                  labelStyle: TextStyle(color: Color(0xFF2CBF6C)),
+                  labelStyle: const TextStyle(color: Color(0xFF2CBF6C)),
                   suffixIcon: IconButton(
                     onPressed: showHide,
                     icon: Icon(
                       _secureText ? Icons.visibility_off : Icons.visibility,
-                      color: Color(0xFF2CBF6C),
+                      color: const Color(0xFF2CBF6C),
                     ),
                   ),
                 ),
@@ -112,8 +112,8 @@ class LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   child: Text(_isLoading ? 'Please wait...' : 'Sign In'),
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF2CBF6C),
-                    textStyle: TextStyle(fontSize: 20),
+                    primary: const Color(0xFF2CBF6C),
+                    textStyle: const TextStyle(fontSize: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -148,7 +148,7 @@ class LoginPageState extends State<LoginPage> {
       localStorage.setString('user', json.encode(body['user']));
       Navigator.pushReplacement(
         context,
-        new MaterialPageRoute(builder: (context) => Layout()),
+        new MaterialPageRoute(builder: (context) => const Layout()),
       );
     } else {
       _showMsg(body['message']);

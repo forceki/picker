@@ -36,15 +36,15 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2CBF6C),
+      backgroundColor: const Color(0xFF2CBF6C),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.fromLTRB(0, 104, 0, 9),
-                child: Text(
+                margin: const EdgeInsets.fromLTRB(0, 104, 0, 9),
+                child: const Text(
                   'Success',
                   style: TextStyle(
                       color: Colors.black,
@@ -53,8 +53,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 54),
-                child: Text(
+                margin: const EdgeInsets.only(bottom: 54),
+                child: const Text(
                   'Handover to Packing Area',
                   style: TextStyle(color: Colors.black, fontSize: 14),
                 ),
@@ -66,8 +66,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                 backgroundColor: Colors.white,
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 39, 0, 9),
-                child: Text(
+                margin: const EdgeInsets.fromLTRB(0, 39, 0, 9),
+                child: const Text(
                   'Picklist Number',
                   style: TextStyle(
                       color: Colors.black,
@@ -76,8 +76,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 17),
-                child: Text(
+                margin: const EdgeInsets.only(bottom: 17),
+                child: const Text(
                   '20220804A010000001',
                   style: TextStyle(color: Colors.black, fontSize: 24),
                 ),
@@ -90,7 +90,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                          child: Text(
+                          child: const Text(
                         'Articles',
                         style: TextStyle(
                             color: Colors.black,
@@ -98,8 +98,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                             fontWeight: FontWeight.w300),
                       )),
                       Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          child: Text(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          child: const Text(
                             '88/888',
                             style: TextStyle(color: Colors.black, fontSize: 25),
                           )),
@@ -109,7 +109,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                          child: Text(
+                          child: const Text(
                         'Quantity',
                         style: TextStyle(
                             color: Colors.black,
@@ -117,8 +117,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                             fontWeight: FontWeight.w300),
                       )),
                       Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          child: Text(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          child: const Text(
                             '88/888',
                             style: TextStyle(color: Colors.black, fontSize: 25),
                           )),
@@ -133,14 +133,14 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Started',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
-                      Text(
+                      const Text(
                         '88:88:88',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
@@ -149,14 +149,14 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Duration',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
-                      Text(
+                      const Text(
                         '88:88:88',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
@@ -170,7 +170,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                     itemBuilder: (BuildContext context, int index) {
                       final printer = printers[index];
                       return ListTile(
-                        contentPadding: EdgeInsets.all(0),
+                        contentPadding: const EdgeInsets.all(0),
                         title: Text('${printer.model} | ${printer.series}'),
                         subtitle: Text('${printer.ipAddress}'),
                         trailing: ElevatedButton(
@@ -180,21 +180,21 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
                             },
                             style: ElevatedButton.styleFrom(
                               shadowColor: Colors.transparent,
-                              fixedSize: Size(105, 40),
-                              primary: Color.fromARGB(255, 0, 166, 255),
-                              textStyle: TextStyle(
+                              fixedSize: const Size(105, 40),
+                              primary: const Color.fromARGB(255, 0, 166, 255),
+                              textStyle: const TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w500),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(100),
                               ),
                             ),
-                            child: Text('Print')),
+                            child: const Text('Print')),
                       );
                     },
                     itemCount: printers.length,
                     primary: false,
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                   ))
             ],
           ),

@@ -48,39 +48,31 @@ class _OngoingDetailState extends State<OngoingDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Logged in uus',
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Icons.power_settings_new, color: Colors.black),
-        //     onPressed: () {
-        //       print("anu");
-        //     },
-        //   )
-        // ],
       ),
       body: Container(
         child: Column(children: [
-          OngoingAppbar(
+          const OngoingAppbar(
             title: "Ongoing",
           ),
           Expanded(
             child: ListView(children: [
-              Container(
-                  height: 380.0,
-                  width: 380.0,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
-                      fit: BoxFit.fitHeight,
-                    ),
-                  )),
+              Stack(alignment: Alignment.topRight, children: const <Widget>[
+                Image(
+                  image: NetworkImage(
+                      "https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
+                ),
+                Padding(
+                    padding: EdgeInsets.all(21),
+                    child: Icon(Icons.clear_rounded,
+                        color: Colors.black, size: 24, semanticLabel: 'Close')),
+              ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -282,13 +274,13 @@ class _OngoingDetailState extends State<OngoingDetail> {
           ),
           Container(
               child: ElevatedButton(
-                  child: Text('Scan & Mark as Complete'),
+                  child: const Text('Scan & Mark as Complete'),
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(200, 40),
+                    minimumSize: const Size(200, 40),
                     shadowColor: Colors.transparent,
-                    primary: Color(0xFF2CBF6C),
-                    textStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    primary: const Color(0xFF2CBF6C),
+                    textStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w500),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),

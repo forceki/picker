@@ -64,15 +64,12 @@ class AccountPageState extends State<AccountPage> {
         const Padding(
           padding: EdgeInsets.only(bottom: 15),
           child: Text(
-            '@admin',
+            '@mitra',
             style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ),
         const Text('Last Login: 09-20-2022',
-            style: TextStyle(
-                color: Color(0xFF777986),
-                fontSize: 16,
-                fontWeight: FontWeight.w500)),
+            style: TextStyle(color: Color(0xFF777986), fontSize: 16)),
         GestureDetector(
           onTap: () async {
             final result = await Navigator.push<int>(
@@ -80,7 +77,7 @@ class AccountPageState extends State<AccountPage> {
                 MaterialPageRoute(
                     // navigasi ke detail page, tapi detail pagenya pakai template
                     // scaffold kalo perlu bawa index bottomnavbar nya sekalian
-                    builder: (context) => ChangePw()));
+                    builder: (context) => const ChangePw()));
             // abis page tujuan di pop, bawa indexnya ke parent
             // widget buat ngeganti body widget kalo user pencet
             // bottomnavbarnya waktu di page detail
@@ -113,13 +110,13 @@ class AccountPageState extends State<AccountPage> {
                         color: Color((0xFF2CBF6C)),
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Change Password',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
-                Icon(Icons.adaptive.arrow_back_rounded,
+                const Icon(Icons.chevron_right_rounded,
                     color: Color((0xFF2CBF6C)))
               ],
             ),
@@ -154,13 +151,13 @@ class AccountPageState extends State<AccountPage> {
                       child: const Icon(Icons.exit_to_app_rounded,
                           color: Color((0xFFD63333))),
                     ),
-                    Text(
+                    const Text(
                       'Log Out',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
-                Icon(Icons.adaptive.arrow_back_rounded,
+                const Icon(Icons.chevron_right_rounded,
                     color: Color((0xFFD63333)))
               ],
             ),
@@ -176,6 +173,6 @@ class AccountPageState extends State<AccountPage> {
     localStorage.remove('user');
     localStorage.remove('token');
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }
