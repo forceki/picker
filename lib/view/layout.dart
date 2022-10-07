@@ -89,22 +89,13 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Logged in $name',
-          style: const TextStyle(fontSize: 16, color: Colors.black),
-        ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Icons.power_settings_new, color: Colors.black),
-        //     onPressed: () {
-        //       logout();
-        //     },
-        //   )
-        // ],
-      ),
+          title: Text(
+            'Logged in $name',
+            style: const TextStyle(fontSize: 16, color: Colors.black),
+          ),
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          elevation: 0),
       body: getContent(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,

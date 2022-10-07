@@ -36,6 +36,14 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+              icon: Icon(Icons.adaptive.arrow_back_rounded),
+              color: Colors.black,
+              onPressed: () => Navigator.pop(context)),
+          backgroundColor: Colors.transparent,
+          elevation: 0),
       backgroundColor: const Color(0xFF2CBF6C),
       body: SingleChildScrollView(
         child: Center(
@@ -43,7 +51,6 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 104, 0, 9),
                 child: const Text(
                   'Success',
                   style: TextStyle(

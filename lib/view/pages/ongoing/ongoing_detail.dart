@@ -49,7 +49,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Logged in uus',
+          'Logged in mitra',
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
         automaticallyImplyLeading: false,
@@ -63,15 +63,15 @@ class _OngoingDetailState extends State<OngoingDetail> {
           ),
           Expanded(
             child: ListView(children: [
-              Stack(alignment: Alignment.topRight, children: const <Widget>[
-                Image(
+              Stack(alignment: Alignment.topRight, children: <Widget>[
+                const Image(
                   image: NetworkImage(
                       "https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
                 ),
-                Padding(
-                    padding: EdgeInsets.all(21),
-                    child: Icon(Icons.clear_rounded,
-                        color: Colors.black, size: 24, semanticLabel: 'Close')),
+                IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.clear_rounded),
+                    padding: const EdgeInsets.all(21)),
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
