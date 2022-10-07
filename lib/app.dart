@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Picker',
         onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
-        home: CheckAuth());
+        home: const CheckAuth());
   }
 }

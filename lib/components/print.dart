@@ -51,7 +51,8 @@ class _PrintState extends State<Print> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                      onPressed: onDiscoveryTCP, child: Text('Discovery TCP')),
+                      onPressed: onDiscoveryTCP,
+                      child: const Text('Discovery TCP')),
                 ],
               ),
               Flexible(
@@ -59,7 +60,7 @@ class _PrintState extends State<Print> {
                 itemBuilder: (BuildContext context, int index) {
                   final printer = printers[index];
                   return ListTile(
-                    contentPadding: EdgeInsets.all(0),
+                    contentPadding: const EdgeInsets.all(0),
                     title: Text('${printer.model} | ${printer.series}'),
                     subtitle: Text('${printer.ipAddress}'),
                     trailing: TextButton(
@@ -67,13 +68,13 @@ class _PrintState extends State<Print> {
                           //onSetPrinterSetting(printer);
                           onPrintTest(printer);
                         },
-                        child: Text('Print Test')),
+                        child: const Text('Print Test')),
                   );
                 },
                 itemCount: printers.length,
                 primary: false,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
               ))
             ],
           ),

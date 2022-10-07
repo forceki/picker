@@ -42,10 +42,10 @@ class _QueuePageState extends State<QueuePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
-                  children: [
+                  children: const [
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         'Picklist',
                         style: TextStyle(
                             color: Color(0xFF2CBF6C),
@@ -55,7 +55,7 @@ class _QueuePageState extends State<QueuePage> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         '15',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
@@ -63,10 +63,10 @@ class _QueuePageState extends State<QueuePage> {
                   ],
                 ),
                 Column(
-                  children: [
+                  children: const [
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         'Articles',
                         style: TextStyle(
                             color: Color(0xFF2CBF6C),
@@ -76,7 +76,7 @@ class _QueuePageState extends State<QueuePage> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         '888',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
@@ -84,10 +84,10 @@ class _QueuePageState extends State<QueuePage> {
                   ],
                 ),
                 Column(
-                  children: [
+                  children: const [
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         'Quantity',
                         style: TextStyle(
                             color: Color(0xFF2CBF6C),
@@ -97,7 +97,7 @@ class _QueuePageState extends State<QueuePage> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         '888',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       ),
@@ -122,7 +122,6 @@ class _QueuePageState extends State<QueuePage> {
                                 MaterialPageRoute(
                                     // navigasi ke detail page, tapi detail pagenya pakai template
                                     // scaffold kalo perlu bawa index bottomnavbar nya sekalian
-
                                     builder: (context) => QueueList(
                                           orderNumber:
                                               snapshot.data![index].orderNumber,

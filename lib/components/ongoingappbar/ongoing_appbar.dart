@@ -26,8 +26,8 @@ class OngoingAppbar extends StatelessWidget {
                     child: Container(
                       child: Text(
                         "$title",
-                        style:
-                            TextStyle(color: Color(0xFF2CBF6C), fontSize: 34),
+                        style: const TextStyle(
+                            color: Color(0xFF2CBF6C), fontSize: 34),
                       ),
                     ),
                   ),
@@ -45,7 +45,7 @@ class OngoingAppbar extends StatelessWidget {
             Container(
               width: 100,
               height: 100,
-              child: ChartWidget(),
+              child: const ChartWidget(),
             )
           ],
         ),

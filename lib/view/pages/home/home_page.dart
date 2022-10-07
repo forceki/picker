@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Center(
               child: Container(
-            padding: EdgeInsets.only(top: 24),
+            padding: const EdgeInsets.only(top: 24),
             child: const Text(
               "Ongoing Picklist",
               style: TextStyle(
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          ChartWidget(),
+          const ChartWidget(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                      child: Text(
+                      child: const Text(
                     'Articles',
                     style: TextStyle(
                         color: Colors.black,
@@ -57,8 +57,8 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.w300),
                   )),
                   Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      child: const Text(
                         '88/888',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       )),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                      child: Text(
+                      child: const Text(
                     'Quantity',
                     style: TextStyle(
                         color: Colors.black,
@@ -76,8 +76,8 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.w300),
                   )),
                   Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      child: const Text(
                         '88/888',
                         style: TextStyle(color: Colors.black, fontSize: 25),
                       )),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     'Started',
                     style: TextStyle(
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     'Duration',
                     style: TextStyle(
@@ -125,15 +125,15 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
               color: Colors.transparent,
-              margin: EdgeInsets.fromLTRB(0, 25, 0, 30),
+              margin: const EdgeInsets.fromLTRB(0, 25, 0, 30),
               child: ElevatedButton(
-                child: Text('Continue'),
+                child: const Text('Continue'),
                 style: ElevatedButton.styleFrom(
                   shadowColor: Colors.transparent,
-                  fixedSize: Size(105, 40),
-                  primary: Color(0xFF2CBF6C),
-                  textStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  fixedSize: const Size(105, 40),
+                  primary: const Color(0xFF2CBF6C),
+                  textStyle: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w500),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
@@ -148,9 +148,9 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, constraints) => Container(
                         // height: 182,
                         // width: 182,
-                        margin: EdgeInsets.fromLTRB(16, 0, 16, 25),
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
+                        margin: const EdgeInsets.fromLTRB(16, 0, 16, 25),
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
                             color: Color(0xFF2CBF6C),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12))),
@@ -159,8 +159,8 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: EdgeInsets.only(bottom: 24),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 24),
+                                child: const Text(
                                   'Queue',
                                   style: TextStyle(
                                       color: Colors.black,
@@ -169,23 +169,23 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(bottom: 5),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 5),
+                                child: const Text(
                                   '88 picklist',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 24),
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(bottom: 5),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 5),
+                                child: const Text(
                                   '888 articles',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16),
                                 ),
                               ),
                               Container(
-                                child: Text(
+                                child: const Text(
                                   '8.888 pieces',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16),
@@ -199,9 +199,9 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, constraints) => Container(
                         // height: 182,
                         // width: 182,
-                        margin: EdgeInsets.fromLTRB(0, 0, 16, 25),
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
+                        margin: const EdgeInsets.fromLTRB(0, 0, 16, 25),
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
                             color: Color(0xFFF2F2F2),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12))),
@@ -210,8 +210,8 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: EdgeInsets.only(bottom: 24),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 24),
+                                child: const Text(
                                   'Finished',
                                   style: TextStyle(
                                       color: Colors.black,
@@ -220,23 +220,23 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(bottom: 5),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 5),
+                                child: const Text(
                                   '88 picklist',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 24),
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(bottom: 5),
-                                child: Text(
+                                margin: const EdgeInsets.only(bottom: 5),
+                                child: const Text(
                                   '888 articles',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16),
                                 ),
                               ),
                               Container(
-                                child: Text(
+                                child: const Text(
                                   '8.888 pieces',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16),

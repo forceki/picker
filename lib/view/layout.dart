@@ -24,7 +24,7 @@ class _LayoutState extends State<Layout> {
   int currentIndex = 0;
 
   final itemContent = [
-    Center(child: Text("My Account")),
+    const Center(child: Text("My Account")),
   ];
 
   @override
@@ -89,22 +89,13 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Logged in $name',
-          style: TextStyle(fontSize: 16, color: Colors.black),
-        ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.power_settings_new, color: Colors.black),
-            onPressed: () {
-              logout();
-            },
-          )
-        ],
-      ),
+          title: Text(
+            'Logged in $name',
+            style: const TextStyle(fontSize: 16, color: Colors.black),
+          ),
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          elevation: 0),
       body: getContent(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
@@ -130,6 +121,6 @@ class _LayoutState extends State<Layout> {
     localStorage.remove('user');
     localStorage.remove('token');
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }
