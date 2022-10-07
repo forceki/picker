@@ -46,12 +46,11 @@ class AccountPageState extends State<AccountPage> {
           width: 150,
           padding: const EdgeInsets.only(bottom: 15),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(262),
-            child: const Image(
+              borderRadius: BorderRadius.circular(262),
+              child: const Image(
               image: NetworkImage(
                   'https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ),
-          ),
+            )),
         ),
         const Padding(
           padding: EdgeInsets.only(bottom: 5),
