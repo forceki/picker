@@ -227,11 +227,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
     final generator = Generator(PaperSize.mm58, profile);
     List<int> bytes = [];
 
-    bytes += generator.text('Success!',
-        styles: const PosStyles(align: PosAlign.center));
-    bytes += generator.feed(2);
     bytes +=
-        generator.qrcode(widget.data, size: QRSize.Size4, cor: QRCorrection.H);
+        generator.qrcode(widget.data, size: QRSize.Size8, cor: QRCorrection.H);
     bytes += generator.feed(2);
 
     bytes += generator.text('Picklist Number',
@@ -265,13 +262,6 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
       ),
     ]);
 
-    bytes += generator.text('Text size 200%',
-        styles: const PosStyles(
-            height: PosTextSize.size2,
-            width: PosTextSize.size2,
-            align: PosAlign.center));
-
-    bytes += generator.reset();
     bytes += generator.cut();
 
     return bytes;
@@ -280,12 +270,10 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
   void onPrintTest(EpsonPrinterModel printer) async {
     EpsonEPOSCommand command = EpsonEPOSCommand();
     List<Map<String, dynamic>> commands = [];
-    commands.add(command.addTextAlign(EpsonEPOSTextAlign.LEFT));
-    commands.add(command.addFeedLine(4));
-    commands.add(command.append('PRINT TEST OK!\n'));
+    commands.add(command.addTextAlign(EpsonEPOSTextAlign.CENTER));
+    commands.add(command.addFeedLine(1));
     commands.add(command.rawData(Uint8List.fromList(await _customEscPos())));
-    commands.add(command.addFeedLine(4));
-    commands.add(command.addCut(EpsonEPOSCut.CUT_FEED));
+    commands.add(command.addCut(EpsonEPOSCut.CUT_RESERVE));
     await EpsonEPOS.onPrint(printer, commands);
   }
 }

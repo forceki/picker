@@ -23,8 +23,12 @@ class Api {
   auth(data, apiUrl) async {
     var fullUrl = _url + apiUrl;
     log("url $data");
-    return await http.post(Uri.parse(fullUrl),
-        body: jsonEncode(data), headers: _setHeaders());
+    try {
+      return await http.post(Uri.parse(fullUrl),
+          body: jsonEncode(data), headers: _setHeaders());
+    } catch (e) {
+      print(e);
+    }
   }
 
   getData(apiUrl) async {

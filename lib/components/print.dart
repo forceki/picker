@@ -114,12 +114,11 @@ class _PrintState extends State<Print> {
     final generator = Generator(PaperSize.mm58, profile);
     List<int> bytes = [];
 
-    bytes += generator.text(
-        'Regular: aA bB cC dD eE fF gG hH iI jJ kK lL mM nN oO pP qQ rR sS tT uU vV wW xX yY zZ');
-    bytes += generator.text('Special 1: àÀ èÈ éÉ ûÛ üÜ çÇ ôÔ',
-        styles: const PosStyles(codeTable: 'CP1252'));
-    bytes += generator.text('Special 2: blåbærgrød',
-        styles: const PosStyles(codeTable: 'CP1252'));
+    bytes += generator.text('Regular: semangat yaa!!');
+    // bytes += generator.text('Special 1: àÀ èÈ éÉ ûÛ üÜ çÇ ôÔ',
+    //     styles: const PosStyles(codeTable: 'CP1252'));
+    // bytes += generator.text('Special 2: blåbærgrød',
+    //     styles: const PosStyles(codeTable: 'CP1252'));
 
     bytes += generator.text('Bold text', styles: const PosStyles(bold: true));
     bytes +=
@@ -171,7 +170,7 @@ class _PrintState extends State<Print> {
     List<Map<String, dynamic>> commands = [];
     commands.add(command.addTextAlign(EpsonEPOSTextAlign.LEFT));
     commands.add(command.addFeedLine(4));
-    commands.add(command.append('PRINT TEST OK!\n'));
+    commands.add(command.append('From : someone who know you \n'));
     commands.add(command.rawData(Uint8List.fromList(await _customEscPos())));
     commands.add(command.addFeedLine(4));
     commands.add(command.addCut(EpsonEPOSCut.CUT_FEED));
