@@ -82,13 +82,14 @@ class _ScanBarcodeState extends State<ScanBarcode> {
         children: <Widget>[
           ElevatedButton(
               onPressed: () => {scanBarcodeNormal()},
-              child: Text('Start barcode scan')),
+              child: const Text('Start barcode scan')),
           ElevatedButton(
-              onPressed: () => {scanQR()}, child: Text('Start QR scan')),
+              onPressed: () => {scanQR()}, child: const Text('Start QR scan')),
           ElevatedButton(
               onPressed: () => {startBarcodeScanStream()},
-              child: Text('Start barcode scan stream')),
-          Text('Scan result : $_scanBarcode\n', style: TextStyle(fontSize: 20))
+              child: const Text('Start barcode scan stream')),
+          Text('Scan result : $_scanBarcode\n',
+              style: const TextStyle(fontSize: 20))
         ],
       ),
     );
