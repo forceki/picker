@@ -4,9 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:picker/components/chart.dart';
 
 class OngoingAppbar extends StatelessWidget {
-  const OngoingAppbar({Key? key, required this.title}) : super(key: key);
+  const OngoingAppbar(
+      {Key? key,
+      required this.title,
+      required this.articleTotal,
+      required this.picklist,
+      required this.duration,
+      required this.totalQty})
+      : super(key: key);
 
   final String title;
+  final String picklist;
+  final int articleTotal;
+  final String duration;
+  final int totalQty;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +44,8 @@ class OngoingAppbar extends StatelessWidget {
                   ),
                   Align(
                     child: Container(
-                      child: const Text(
-                        "20220804A010000001",
+                      child: Text(
+                        "$picklist",
                         style: TextStyle(color: Colors.black, fontSize: 24),
                       ),
                     ),
@@ -72,8 +83,8 @@ class OngoingAppbar extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        child: const Text(
-                          "88/888",
+                        child: Text(
+                          "$articleTotal",
                           style: TextStyle(color: Colors.black, fontSize: 24),
                         ),
                       ),
@@ -98,8 +109,8 @@ class OngoingAppbar extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        child: const Text(
-                          "888/8.888",
+                        child: Text(
+                          "$totalQty",
                           style: TextStyle(color: Colors.black, fontSize: 24),
                         ),
                       ),
@@ -124,8 +135,8 @@ class OngoingAppbar extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        child: const Text(
-                          "88:88:88",
+                        child: Text(
+                          "$duration",
                           style: TextStyle(color: Colors.black, fontSize: 24),
                         ),
                       ),

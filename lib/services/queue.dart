@@ -21,14 +21,17 @@ class QueueAPI {
     log("token $token");
   }
 
-  Future<List<Picklist>> getPicklist(apiUrl) async {
+  Future<TotalDetail> getPicklist(apiUrl, status) async {
     var fullUrl = _url + apiUrl;
-    final response = await http.get(Uri.parse(fullUrl), headers: _setHeaders());
+    final response = await http.get(
+        Uri.parse(fullUrl).replace(query: 'status=$status'),
+        headers: _setHeaders());
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body);
-      final anu = parsed['data'].cast<Map<String, dynamic>>();
-      return anu.map<Picklist>((json) => Picklist.fromMap(json)).toList();
+      final anu = parsed['data'];
+      print(anu);
+      return TotalDetail.fromJson(anu);
     } else {
       throw Exception('Failed to load album');
     }
@@ -40,22 +43,56 @@ class QueueAPI {
         'Authorization': 'Bearer $token',
       };
 
-  Future<List<Article>> getArticle(apiUrl, orderNumber) async {
+  Future<ArticleDetail> getArticle(apiUrl, picklist) async {
     var fullUrl = _url + apiUrl;
     final response = await http.get(
-      Uri.parse(fullUrl).replace(query: 'order_number=$orderNumber'),
+      Uri.parse(fullUrl).replace(query: 'picklist=$picklist'),
       headers: _setHeaders(),
     );
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body);
 
-      final anu = parsed['data'].cast<Map<String, dynamic>>();
-      print(anu);
+      final anu = parsed['data'];
 
-      return anu.map<Article>((json) => Article.fromMap(json)).toList();
+      return ArticleDetail.fromJson(anu);
     } else {
       throw Exception('Failed to load album');
+    }
+  }
+
+  Future<ArticleDetail> getOngoing(apiUrl) async {
+    var fullUrl = _url + apiUrl;
+    final response = await http.get(
+      Uri.parse(fullUrl),
+      headers: _setHeaders(),
+    );
+
+    if (response.statusCode == 200) {
+      final parsed = json.decode(response.body);
+
+      final anu = parsed['data'];
+
+      return ArticleDetail.fromJson(anu);
+    } else {
+      throw Exception('Failed to load album');
+    }
+  }
+
+  Future<TotalDetail> getTotal(apiUrl, status) async {
+    var fullUrl = _url + apiUrl;
+
+    final response = await http.get(
+      Uri.parse(fullUrl).replace(query: 'status=$status'),
+      headers: _setHeaders(),
+    );
+
+    if (response.statusCode == 200) {
+      var anu = jsonDecode(response.body);
+      print(anu);
+      return TotalDetail.fromJson(anu['data']);
+    } else {
+      throw Exception('Failed to load data');
     }
   }
 }

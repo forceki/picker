@@ -5,10 +5,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:picker/components/generate_barcode.dart';
 import 'package:picker/components/ongoingappbar/ongoing_appbar.dart';
+import 'package:picker/model/picklist.dart';
 import 'package:picker/view/pages/ongoing/ongoing_scan.dart';
 
 class OngoingDetail extends StatefulWidget {
-  const OngoingDetail({Key? key}) : super(key: key);
+  const OngoingDetail({Key? key, required this.data}) : super(key: key);
+
+  final Article data;
 
   @override
   State<OngoingDetail> createState() => _OngoingDetailState();
@@ -17,10 +20,12 @@ class OngoingDetail extends StatefulWidget {
 class _OngoingDetailState extends State<OngoingDetail> {
   final int _currentIndex = 1;
   String _scanBarcode = "nothing";
-
+  List<String> raknumber = [];
   @override
   void initState() {
     super.initState();
+    raknumber = widget.data.rackNumber.split('_');
+    print(raknumber);
   }
 
   Future<void> scanBarcodeNormal() async {
@@ -58,9 +63,9 @@ class _OngoingDetailState extends State<OngoingDetail> {
       ),
       body: Container(
         child: Column(children: [
-          const OngoingAppbar(
-            title: "Ongoing",
-          ),
+          // const OngoingAppbar(
+          //   title: "Ongoing",
+          // ),
           Expanded(
             child: ListView(children: [
               Stack(alignment: Alignment.topRight, children: <Widget>[
@@ -86,30 +91,13 @@ class _OngoingDetailState extends State<OngoingDetail> {
                             style: TextStyle(
                                 color: Color(0xFF2CBF6C), fontSize: 12)),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 16),
-                        child: const Text('B-02-CA-04-B01',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 16),
-                        child: const Text('B-02-CA-04-B02',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 16),
-                        child: const Text('B-02-CA-04-B03',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 16),
-                        child: const Text('B-02-CA-04-B04',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 24)),
-                      ),
+                      for (var item in raknumber)
+                        Container(
+                          margin: const EdgeInsets.only(left: 16),
+                          child: Text('${item}',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 22)),
+                        ),
                     ],
                   ),
                   Column(
@@ -123,10 +111,10 @@ class _OngoingDetailState extends State<OngoingDetail> {
                       ),
                       Container(
                         margin: const EdgeInsets.only(right: 16),
-                        child: const Text('88',
+                        child: Text('${widget.data.qty}',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 60,
+                                fontSize: 45,
                                 fontWeight: FontWeight.w300)),
                       ),
                     ],
@@ -144,9 +132,8 @@ class _OngoingDetailState extends State<OngoingDetail> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
-                    width: 300,
-                    child: const Text(
-                        'HOODIE RED FLOWER MOTIV VERY LONG ARTICLE NAME',
+                    width: 400,
+                    child: Text('${widget.data.articleName}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         softWrap: false,
@@ -165,7 +152,7 @@ class _OngoingDetailState extends State<OngoingDetail> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 16),
-                    child: const Text('XL',
+                    child: Text('${widget.data.sizes}',
                         style: TextStyle(color: Colors.black, fontSize: 24)),
                   ),
                 ],
@@ -232,37 +219,37 @@ class _OngoingDetailState extends State<OngoingDetail> {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                        child: const Text('IN.BLC-UC007',
+                        child: Text('${widget.data.articleCode}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text('00INUC0266',
+                        child: Text('${widget.data.barcode}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text('OUTER',
+                        child: Text('${widget.data.categoryName}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text('HOODIE',
+                        child: Text('${widget.data.brandName}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text('RED',
+                        child: Text('${widget.data.colourName}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 16),
-                        child: const Text('NON',
+                        child: Text('${widget.data.sex}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
                       ),

@@ -26,11 +26,11 @@ class _OngoingScanState extends State<OngoingScan> {
           elevation: 0),
       body: Container(
         child: Column(children: [
-          const OngoingAppbar(title: "Ongoing"),
-          Expanded(
-              child: ListView(
-            children: const [ScanBarcode()],
-          ))
+          // const OngoingAppbar(title: "Ongoing"),
+          // Expanded(
+          //     child: ListView(
+          //   children: const [ScanBarcode()],
+          // ))
         ]),
       ),
     );

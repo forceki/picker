@@ -1,37 +1,131 @@
+import 'dart:ffi';
+
 import 'package:flutter/widgets.dart';
 
 class Picklist {
-  Picklist(
-      {required this.id,
-      required this.orderNumber,
-      required this.countArticle,
-      required this.sumQty,
-      required this.countCategory,
-      required this.priority});
+  Picklist({
+    required this.totalPicklist,
+    required this.picklist,
+    required this.qty,
+    required this.dateTrans,
+  });
 
-  int id;
-  String orderNumber;
-  int countArticle;
-  int sumQty;
-  int countCategory;
-  int priority;
+  String totalPicklist;
+  String picklist;
+  String qty;
+  String dateTrans;
 
-  factory Picklist.fromMap(Map<String, dynamic> json) => Picklist(
-      id: json['id'],
-      orderNumber: json['order_number'],
-      countArticle: json['count_article'],
-      sumQty: json['sum_qty'],
-      countCategory: json['count_category'],
-      priority: json['priority']);
+  factory Picklist.fromJson(Map<String, dynamic> json) => Picklist(
+      totalPicklist: json['total_picklist'],
+      picklist: json['picklist'],
+      qty: json['qty'],
+      dateTrans: json['date_trans']);
+}
+
+class TotalDetail {
+  TotalDetail(
+      {required this.totalArticle,
+      required this.totalPicklist,
+      required this.totalqty,
+      required this.details});
+
+  int totalArticle;
+  int totalPicklist;
+  int totalqty;
+  List<Picklist> details;
+
+  factory TotalDetail.fromJson(Map<String, dynamic> json) {
+    var details = json['details'] as List;
+    List<Picklist> _details = details.map((e) => Picklist.fromJson(e)).toList();
+
+    print(_details);
+    return TotalDetail(
+        totalArticle: json['total_article'],
+        totalPicklist: json['total_picklist'],
+        totalqty: json['total_qty'],
+        details: _details);
+  }
 }
 
 class Article {
-  Article({required this.id, required this.articleName, required this.sizes});
+  Article(
+      {required this.id,
+      required this.dateTrans,
+      required this.orderNumber,
+      required this.picklist,
+      required this.articleCode,
+      required this.articleName,
+      required this.brandName,
+      required this.categoryName,
+      required this.typeName,
+      required this.colourName,
+      required this.sex,
+      required this.barcode,
+      required this.sizes,
+      required this.rackNumber,
+      required this.qty,
+      required this.status_picked});
 
   int id;
+  String dateTrans;
+  String orderNumber;
+  String picklist;
+  String articleCode;
   String articleName;
+  String brandName;
+  String categoryName;
+  String typeName;
+  String colourName;
+  String sex;
+  String barcode;
   String sizes;
+  String rackNumber;
+  int qty;
+  bool status_picked;
 
-  factory Article.fromMap(Map<String, dynamic> json) => Article(
-      id: json['id'], articleName: json['article_name'], sizes: json['sizes']);
+  factory Article.formJson(Map<String, dynamic> json) => Article(
+      id: json['id'],
+      dateTrans: json['date_trans'],
+      orderNumber: json['order_number'],
+      picklist: json['picklist'],
+      articleCode: json['articlecode'],
+      articleName: json['articlename'],
+      brandName: json['brandname'],
+      categoryName: json['categoryname'],
+      typeName: json['typename'],
+      colourName: json['colourname'],
+      sex: json['sex'],
+      barcode: json['barcode'],
+      sizes: json['sizes'],
+      qty: json['qty'],
+      rackNumber: json['rack_number'],
+      status_picked: json['status_picked']);
+}
+
+class ArticleDetail {
+  ArticleDetail(
+      {required this.totalArticle,
+      required this.picklist,
+      required this.totalQty,
+      required this.duration,
+      required this.articles});
+
+  int totalArticle;
+  String picklist;
+  int totalQty;
+  String duration;
+  List<Article> articles;
+
+  factory ArticleDetail.fromJson(Map<String, dynamic> json) {
+    var article = json['articles'] as List;
+
+    List<Article> _article = article.map((e) => Article.formJson(e)).toList();
+
+    return ArticleDetail(
+        picklist: json['picklist'],
+        totalArticle: json['total_article'],
+        totalQty: json['total_qty'],
+        duration: json['duration'],
+        articles: _article);
+  }
 }

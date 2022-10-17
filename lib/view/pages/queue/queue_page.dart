@@ -15,12 +15,19 @@ class QueuePage extends StatefulWidget {
 }
 
 class _QueuePageState extends State<QueuePage> {
-  late Future<List<Picklist>> futurequelist;
+  late Future<TotalDetail> futurequelist;
+  //late Future<TotalDetail> total;
 
   @override
   void initState() {
-    futurequelist = QueueAPI().getPicklist("picklist");
     super.initState();
+
+    getData();
+  }
+
+  getData() async {
+    futurequelist = QueueAPI().getPicklist("picklist", 0);
+    // total = QueueAPI().getTotal("picklist/total", 0);
   }
 
   @override
@@ -36,84 +43,166 @@ class _QueuePageState extends State<QueuePage> {
                 style: TextStyle(color: Color(0xFF2CBF6C), fontSize: 34),
               )),
           Container(
-            margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Picklist',
-                        style: TextStyle(
-                            color: Color(0xFF2CBF6C),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        '15',
-                        style: TextStyle(color: Colors.black, fontSize: 25),
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Articles',
-                        style: TextStyle(
-                            color: Color(0xFF2CBF6C),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        '888',
-                        style: TextStyle(color: Colors.black, fontSize: 25),
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Quantity',
-                        style: TextStyle(
-                            color: Color(0xFF2CBF6C),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        '888',
-                        style: TextStyle(color: Colors.black, fontSize: 25),
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
+              margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+              child: FutureBuilder<TotalDetail>(
+                future: futurequelist,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Picklist',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "${snapshot.data!.totalPicklist}",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Articles',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${snapshot.data!.totalArticle}',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Quantity',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${snapshot.data!.totalqty}',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: const [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Picklist',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "0",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Articles',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '0',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Quantity',
+                                style: TextStyle(
+                                    color: Color(0xFF2CBF6C),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '0',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    );
+                  }
+                },
+              )),
           Expanded(
-            child: FutureBuilder<List<Picklist>>(
+            child: FutureBuilder<TotalDetail>(
               future: futurequelist,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
-                      itemCount: snapshot.data!.length,
+                      itemCount: snapshot.data!.details.length,
                       itemBuilder: ((context, index) {
                         return GestureDetector(
                           onTap: () async {
@@ -123,8 +212,8 @@ class _QueuePageState extends State<QueuePage> {
                                     // navigasi ke detail page, tapi detail pagenya pakai template
                                     // scaffold kalo perlu bawa index bottomnavbar nya sekalian
                                     builder: (context) => QueueList(
-                                          orderNumber:
-                                              snapshot.data![index].orderNumber,
+                                          orderNumber: snapshot
+                                              .data!.details[index].picklist,
                                         )));
                             // abis page tujuan di pop, bawa indexnya ke parent
                             // widget buat ngeganti body widget kalo user pencet
@@ -150,7 +239,7 @@ class _QueuePageState extends State<QueuePage> {
                                     children: [
                                       Align(
                                         child: Text(
-                                          "${snapshot.data![index].orderNumber}",
+                                          "${snapshot.data!.details[index].picklist}",
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 16,
@@ -159,7 +248,7 @@ class _QueuePageState extends State<QueuePage> {
                                       ),
                                       Align(
                                         child: Text(
-                                          "${snapshot.data![index].countArticle}",
+                                          "Art ${snapshot.data!.details[index].totalPicklist}",
                                           style: TextStyle(
                                               color: Color(0xFF2CBF6C),
                                               fontSize: 14),
@@ -167,15 +256,15 @@ class _QueuePageState extends State<QueuePage> {
                                       ),
                                       Align(
                                         child: Text(
-                                          "${snapshot.data![index].sumQty}",
+                                          "Qty ${snapshot.data!.details[index].qty}",
                                           style: TextStyle(
                                               color: Color(0xFF2CBF6C),
                                               fontSize: 14),
                                         ),
                                       ),
                                       Align(
-                                        child: const Text(
-                                          "Received 88:88:88",
+                                        child: Text(
+                                          "Received ${snapshot.data!.details[index].dateTrans}",
                                           style: TextStyle(
                                               color: Color(0xFF2CBF6C),
                                               fontSize: 14),

@@ -8,18 +8,6 @@
             "name": "picker",
             "request": "launch",
             "type": "dart"
-        },
-        {
-            "name": "picker (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "picker (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
         }
     ]
 }

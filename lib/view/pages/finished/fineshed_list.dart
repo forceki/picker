@@ -4,9 +4,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:picker/components/ongoingappbar/ongoing_appbar.dart';
+import 'package:picker/model/picklist.dart';
+import 'package:picker/services/queue.dart';
 
 class FinishedList extends StatefulWidget {
-  const FinishedList({Key? key}) : super(key: key);
+  const FinishedList({Key? key, required this.order_number}) : super(key: key);
+
+  final String order_number;
 
   @override
   State<FinishedList> createState() => _FinishedListState();
@@ -16,9 +20,12 @@ class _FinishedListState extends State<FinishedList> {
   final _currentIndex = 3;
   String _scanBarcode = "nothing";
 
+  late Future<ArticleDetail> articleList;
+
   @override
   void initState() {
     super.initState();
+    articleList = QueueAPI().getArticle('picklist/detail', widget.order_number);
   }
 
   Future<void> scanBarcodeNormal() async {
@@ -59,88 +66,125 @@ class _FinishedListState extends State<FinishedList> {
           elevation: 0),
       body: Container(
         child: Column(children: [
-          const OngoingAppbar(
-            title: "Finished",
-          ),
+          FutureBuilder<ArticleDetail>(
+              future: articleList,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return (OngoingAppbar(
+                    title: "FINISHED",
+                    totalQty: snapshot.data!.totalQty,
+                    picklist: snapshot.data!.picklist,
+                    articleTotal: snapshot.data!.totalArticle,
+                    duration: snapshot.data!.duration,
+                  ));
+                } else {
+                  return (OngoingAppbar(
+                    title: "FINISHED",
+                    picklist: "",
+                    totalQty: 0,
+                    articleTotal: 0,
+                    duration: "0",
+                  ));
+                }
+              }),
           Expanded(
-              child: ListView.builder(
-            itemCount: 6,
-            itemBuilder: ((context, index) {
-              return GestureDetector(
-                onTap: () async {
-                  print("dd");
-                },
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                  padding: const EdgeInsets.all(10),
-                  height: 82,
-                  decoration: const BoxDecoration(
-                      color: Color(0xFFF2F2F2),
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              height: 64,
-                              width: 64,
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF84D9B1),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(12)))),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
+            child: FutureBuilder<ArticleDetail>(
+              future: articleList,
+              builder: ((context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data!.articles.length,
+                    itemBuilder: ((context, index) {
+                      return GestureDetector(
+                        onTap: () async {
+                          print("dd");
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                          padding: const EdgeInsets.all(10),
+                          height: 82,
+                          decoration: const BoxDecoration(
+                              color: Color(0xFFF2F2F2),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                width: 180,
-                                child: const Text(
-                                  "B-02-CA-04-B01aaaaaaaaaaaaaaaaaaaaaaaaaa",
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  softWrap: false,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
+                              Row(
+                                children: [
+                                  Container(
+                                      margin: const EdgeInsets.only(right: 10),
+                                      height: 64,
+                                      width: 64,
+                                      decoration: const BoxDecoration(
+                                          color: Color(0xFF84D9B1),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12)))),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 180,
+                                        child: Text(
+                                          "${snapshot.data!.articles[index].rackNumber}",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          softWrap: false,
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 180,
+                                        child: Text(
+                                          "${snapshot.data!.articles[index].articleName}",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          softWrap: false,
+                                          style: TextStyle(
+                                              color: Color(0xFF2CBF6C),
+                                              fontSize: 14),
+                                        ),
+                                      ),
+                                      Text(
+                                        "${snapshot.data!.articles[index].sizes} & ${snapshot.data!.articles[index].colourName}",
+                                        style: TextStyle(
+                                            color: Color(0xFF2CBF6C),
+                                            fontSize: 14),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              Container(
-                                width: 180,
-                                child: const Text(
-                                  "Article Name",
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  softWrap: false,
-                                  style: TextStyle(
-                                      color: Color(0xFF2CBF6C), fontSize: 14),
-                                ),
-                              ),
-                              const Text(
-                                "Size & Color",
+                              Text(
+                                '${snapshot.data!.articles[index].qty}',
                                 style: TextStyle(
-                                    color: Color(0xFF2CBF6C), fontSize: 14),
+                                    fontSize: 30,
+                                    color:
+                                        (snapshot.data!.articles[index].qty ??
+                                                    0) >
+                                                1
+                                            ? Colors.redAccent
+                                            : Colors.black,
+                                    fontWeight: FontWeight.w300),
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                      const Text(
-                        '88',
-                        style: TextStyle(
-                            fontSize: 48,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            }),
-          )),
+                        ),
+                      );
+                    }),
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              }),
+            ),
+          ),
           Container(
               child: ElevatedButton(
                   child: const Text('Scan & Mark as Complete'),

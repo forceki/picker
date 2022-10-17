@@ -244,30 +244,6 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
     bytes += generator.text('21300120983190201',
         styles: const PosStyles(align: PosAlign.center));
 
-    bytes += generator.row([
-      PosColumn(
-        text: 'Articles',
-        width: 6,
-        styles: const PosStyles(align: PosAlign.center),
-      ),
-      PosColumn(
-        text: 'Quantity',
-        width: 6,
-        styles: const PosStyles(align: PosAlign.center),
-      ),
-    ]);
-    bytes += generator.row([
-      PosColumn(
-        text: '888',
-        width: 6,
-        styles: const PosStyles(align: PosAlign.center),
-      ),
-      PosColumn(
-        text: '100',
-        width: 6,
-        styles: const PosStyles(align: PosAlign.center),
-      ),
-    ]);
 
     bytes += generator.cut();
 

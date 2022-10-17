@@ -16,12 +16,11 @@ class QueueList extends StatefulWidget {
 
 class _QueueListState extends State<QueueList> {
   final _currentIndex = 2;
-  late Future<List<Article>> articleList;
+  late Future<ArticleDetail> articleList;
 
   @override
   void initState() {
-    articleList =
-        QueueAPI().getArticle('picklist/by-order', widget.orderNumber);
+    articleList = QueueAPI().getArticle('picklist/detail', widget.orderNumber);
     super.initState();
   }
 
@@ -42,16 +41,34 @@ class _QueueListState extends State<QueueList> {
           elevation: 0),
       body: Container(
         child: Column(children: [
-          OngoingAppbar(
-            title: "Finished",
-          ),
+          FutureBuilder<ArticleDetail>(
+              future: articleList,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return (OngoingAppbar(
+                    title: "QUEUE",
+                    totalQty: snapshot.data!.totalQty,
+                    picklist: snapshot.data!.picklist,
+                    articleTotal: snapshot.data!.totalArticle,
+                    duration: snapshot.data!.duration,
+                  ));
+                } else {
+                  return (OngoingAppbar(
+                    title: "QUEUE",
+                    picklist: "",
+                    totalQty: 0,
+                    articleTotal: 0,
+                    duration: "0",
+                  ));
+                }
+              }),
           Expanded(
-            child: FutureBuilder<List<Article>>(
+            child: FutureBuilder<ArticleDetail>(
               future: articleList,
               builder: ((context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
-                    itemCount: snapshot.data!.length,
+                    itemCount: snapshot.data!.articles.length,
                     itemBuilder: ((context, index) {
                       return GestureDetector(
                         onTap: () async {
@@ -86,8 +103,8 @@ class _QueueListState extends State<QueueList> {
                                     children: [
                                       Container(
                                         width: 180,
-                                        child: const Text(
-                                          "B-02-CA-04",
+                                        child: Text(
+                                          "${snapshot.data!.articles[index].rackNumber}",
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           softWrap: false,
@@ -100,7 +117,7 @@ class _QueueListState extends State<QueueList> {
                                       Container(
                                         width: 180,
                                         child: Text(
-                                          "${snapshot.data![index].articleName}",
+                                          "${snapshot.data!.articles[index].articleName}",
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           softWrap: false,
@@ -110,7 +127,7 @@ class _QueueListState extends State<QueueList> {
                                         ),
                                       ),
                                       Text(
-                                        "${snapshot.data![index].sizes}",
+                                        "${snapshot.data!.articles[index].sizes} & ${snapshot.data!.articles[index].colourName}",
                                         style: TextStyle(
                                             color: Color(0xFF2CBF6C),
                                             fontSize: 14),
@@ -120,10 +137,15 @@ class _QueueListState extends State<QueueList> {
                                 ],
                               ),
                               Text(
-                                '88',
+                                '${snapshot.data!.articles[index].qty}',
                                 style: TextStyle(
-                                    fontSize: 48,
-                                    color: Colors.black,
+                                    fontSize: 30,
+                                    color:
+                                        (snapshot.data!.articles[index].qty ??
+                                                    0) >
+                                                1
+                                            ? Colors.redAccent
+                                            : Colors.black,
                                     fontWeight: FontWeight.w300),
                               ),
                             ],
