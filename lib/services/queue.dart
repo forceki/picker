@@ -5,7 +5,7 @@ import 'package:picker/model/picklist.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QueueAPI {
-  final _url = 'http://192.168.0.108:3000/';
+  final _url = 'http://103.161.206.136:1130/';
 
   var token;
 

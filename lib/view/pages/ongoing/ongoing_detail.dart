@@ -9,9 +9,20 @@ import 'package:picker/model/picklist.dart';
 import 'package:picker/view/pages/ongoing/ongoing_scan.dart';
 
 class OngoingDetail extends StatefulWidget {
-  const OngoingDetail({Key? key, required this.data}) : super(key: key);
+  const OngoingDetail(
+      {Key? key,
+      required this.data,
+      required this.articleTotal,
+      required this.picklist,
+      required this.duration,
+      required this.totalQty})
+      : super(key: key);
 
   final Article data;
+  final String picklist;
+  final int articleTotal;
+  final String duration;
+  final int totalQty;
 
   @override
   State<OngoingDetail> createState() => _OngoingDetailState();
@@ -63,9 +74,13 @@ class _OngoingDetailState extends State<OngoingDetail> {
       ),
       body: Container(
         child: Column(children: [
-          // const OngoingAppbar(
-          //   title: "Ongoing",
-          // ),
+          OngoingAppbar(
+            title: "Ongoing",
+            totalQty: widget.totalQty,
+            picklist: widget.picklist,
+            articleTotal: widget.articleTotal,
+            duration: widget.duration,
+          ),
           Expanded(
             child: ListView(children: [
               Stack(alignment: Alignment.topRight, children: <Widget>[

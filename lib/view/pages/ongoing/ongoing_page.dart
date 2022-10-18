@@ -69,7 +69,12 @@ class _OnGoingPageState extends State<OnGoingPage> {
                                 // scaffold kalo perlu bawa index bottomnavbar nya sekalian
 
                                 builder: (context) => OngoingDetail(
-                                    data: snapshot.data!.articles[index])));
+                                      data: snapshot.data!.articles[index],
+                                      totalQty: snapshot.data!.totalQty,
+                                      picklist: snapshot.data!.picklist,
+                                      articleTotal: snapshot.data!.totalArticle,
+                                      duration: snapshot.data!.duration,
+                                    )));
                         // abis page tujuan di pop, bawa indexnya ke parent
                         // widget buat ngeganti body widget kalo user pencet
                         // bottomnavbarnya waktu di page detail
