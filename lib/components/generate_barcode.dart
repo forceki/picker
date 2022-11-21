@@ -41,7 +41,7 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
           leading: IconButton(
               icon: Icon(Icons.adaptive.arrow_back_rounded),
               color: Colors.black,
-              onPressed: () => Navigator.pop(context)),
+              onPressed: () => Navigator.pop(context, 3)),
           backgroundColor: Colors.transparent,
           elevation: 0),
       backgroundColor: const Color(0xFF2CBF6C),
@@ -84,93 +84,93 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
               ),
               Container(
                 margin: const EdgeInsets.only(bottom: 17),
-                child: const Text(
-                  '20220804A010000001',
+                child: Text(
+                  '${widget.data}',
                   style: TextStyle(color: Colors.black, fontSize: 24),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                          child: const Text(
-                        'Articles',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      )),
-                      Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          child: const Text(
-                            '88/888',
-                            style: TextStyle(color: Colors.black, fontSize: 25),
-                          )),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                          child: const Text(
-                        'Quantity',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      )),
-                      Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          child: const Text(
-                            '88/888',
-                            style: TextStyle(color: Colors.black, fontSize: 25),
-                          )),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Started',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      ),
-                      const Text(
-                        '88:88:88',
-                        style: TextStyle(color: Colors.black, fontSize: 25),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Duration',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300),
-                      ),
-                      const Text(
-                        '88:88:88',
-                        style: TextStyle(color: Colors.black, fontSize: 25),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     Column(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         Container(
+              //             child: const Text(
+              //           'Articles',
+              //           style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 16,
+              //               fontWeight: FontWeight.w300),
+              //         )),
+              //         Container(
+              //             margin: const EdgeInsets.only(bottom: 10),
+              //             child: const Text(
+              //               '88/888',
+              //               style: TextStyle(color: Colors.black, fontSize: 25),
+              //             )),
+              //       ],
+              //     ),
+              //     Column(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         Container(
+              //             child: const Text(
+              //           'Quantity',
+              //           style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 16,
+              //               fontWeight: FontWeight.w300),
+              //         )),
+              //         Container(
+              //             margin: const EdgeInsets.only(bottom: 10),
+              //             child: const Text(
+              //               '88/888',
+              //               style: TextStyle(color: Colors.black, fontSize: 25),
+              //             )),
+              //       ],
+              //     )
+              //   ],
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     Column(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         const Text(
+              //           'Started',
+              //           style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 16,
+              //               fontWeight: FontWeight.w300),
+              //         ),
+              //         const Text(
+              //           '88:88:88',
+              //           style: TextStyle(color: Colors.black, fontSize: 25),
+              //         ),
+              //       ],
+              //     ),
+              //     Column(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         const Text(
+              //           'Duration',
+              //           style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 16,
+              //               fontWeight: FontWeight.w300),
+              //         ),
+              //         const Text(
+              //           '88:88:88',
+              //           style: TextStyle(color: Colors.black, fontSize: 25),
+              //         ),
+              //       ],
+              //     )
+              //   ],
+              // ),
               Container(
                   margin: const EdgeInsets.all(10),
                   child: ListView.builder(
@@ -241,9 +241,8 @@ class _GenerateQrCodeState extends State<GenerateQrCode> {
     bytes += generator.text('Picklist Number',
         styles: const PosStyles(align: PosAlign.center));
 
-    bytes += generator.text('21300120983190201',
+    bytes += generator.text('${widget.data}',
         styles: const PosStyles(align: PosAlign.center));
-
 
     bytes += generator.cut();
 

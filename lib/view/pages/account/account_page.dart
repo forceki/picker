@@ -27,12 +27,12 @@ class AccountPageState extends State<AccountPage> {
   _loadUserData() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
 
-    var user = jsonDecode(localStorage.getString('user')!);
-    if (user != null) {
-      setState(() {
-        name = user['username'];
-      });
-    }
+    // var user = jsonDecode(localStorage.getString('user')!);
+    // if (user != null) {
+    //   setState(() {
+    //     name = user['username'];
+    //   });
+    // }
   }
 
   @override
@@ -48,9 +48,9 @@ class AccountPageState extends State<AccountPage> {
           child: ClipRRect(
               borderRadius: BorderRadius.circular(262),
               child: const Image(
-              image: NetworkImage(
-                  'https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            )),
+                image: NetworkImage(
+                    'https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
+              )),
         ),
         const Padding(
           padding: EdgeInsets.only(bottom: 5),

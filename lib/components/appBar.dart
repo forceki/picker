@@ -3,20 +3,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:picker/components/chart.dart';
 
-class OngoingAppbar extends StatelessWidget {
-  const OngoingAppbar(
+class NavBar extends StatelessWidget {
+  const NavBar(
       {Key? key,
       required this.title,
       required this.articleTotal,
       required this.picklist,
       required this.duration,
-      required this.totalPicked,
       required this.totalQty})
       : super(key: key);
 
   final String title;
   final String picklist;
-  final int totalPicked;
   final int articleTotal;
   final String duration;
   final int totalQty;
@@ -86,7 +84,7 @@ class OngoingAppbar extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Container(
                         child: Text(
-                          "$totalPicked/$articleTotal",
+                          "$articleTotal",
                           style: TextStyle(color: Colors.black, fontSize: 24),
                         ),
                       ),

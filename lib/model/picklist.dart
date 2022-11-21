@@ -108,24 +108,42 @@ class ArticleDetail {
       required this.picklist,
       required this.totalQty,
       required this.duration,
-      required this.articles});
+      required this.statusPicked,
+      required this.articles,
+      required this.totalPicked});
 
   int totalArticle;
+  int totalPicked;
+  bool statusPicked;
   String picklist;
   int totalQty;
   String duration;
   List<Article> articles;
 
   factory ArticleDetail.fromJson(Map<String, dynamic> json) {
-    var article = json['articles'] as List;
+    if (json['data'].length > 0) {
+      var data = json['data'];
+      var article = data['articles'] as List;
 
-    List<Article> _article = article.map((e) => Article.formJson(e)).toList();
+      List<Article> _article = article.map((e) => Article.formJson(e)).toList();
 
-    return ArticleDetail(
-        picklist: json['picklist'],
-        totalArticle: json['total_article'],
-        totalQty: json['total_qty'],
-        duration: json['duration'],
-        articles: _article);
+      return ArticleDetail(
+          picklist: data['picklist'],
+          statusPicked: data['status_pick'],
+          totalPicked: data['total_picked'],
+          totalArticle: data['total_article'],
+          totalQty: data['total_qty'],
+          duration: data['duration'],
+          articles: _article);
+    } else {
+      return ArticleDetail(
+          picklist: 'not found',
+          statusPicked: false,
+          totalPicked: 0,
+          totalArticle: 0,
+          totalQty: 0,
+          duration: '0',
+          articles: []);
+    }
   }
 }
