@@ -25,7 +25,7 @@ class FinishedPageState extends State<FinishedPage> {
   }
 
   getData() async {
-    futurequelist = QueueAPI().getPicklist("picklist", 2);
+    futurequelist = QueueAPI().getPicklist("picklist", '2');
     //   total = QueueAPI().getTotal("picklist/total", 2);
   }
 

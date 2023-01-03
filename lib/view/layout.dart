@@ -20,7 +20,7 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  String name = 'uus';
+  String name = '';
   int currentIndex = 0;
 
   final itemContent = [
@@ -34,14 +34,14 @@ class _LayoutState extends State<Layout> {
   }
 
   _loadUserData() async {
-    // SharedPreferences localStorage = await SharedPreferences.getInstance();
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
 
-    // var user = jsonDecode(localStorage.getString('user')!);
-    // if (user != null) {
-    //   setState(() {
-    //     name = user['username'];
-    //   });
-    // }
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      setState(() {
+        name = user['username'];
+      });
+    }
   }
 
   Widget getContent() {

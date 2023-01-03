@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:picker/components/chart.dart';
 import 'package:picker/model/dashboard.dart';
 import 'package:picker/services/queue.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.changeNavbar}) : super(key: key);
@@ -18,11 +19,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<Dashboard> dashboard;
-
+  
+ 
   @override
   void initState() {
     super.initState();
 
+    
     getData();
   }
 
@@ -60,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const ChartWidget(),
+              ChartWidget(article: snapshot.data!.artic ,queue: snapshot.data!.qty),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

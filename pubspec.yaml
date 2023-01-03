@@ -16,7 +16,7 @@ dependencies:
   qr_flutter: ^4.0.0
   epson_epos: ^0.0.2
   esc_pos_utils: ^1.1.0
-
+  flutter_launcher_icons: ^0.11.0
 
 dev_dependencies:
   flutter_test:
@@ -24,4 +24,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 flutter:
   uses-material-design: true
-
+flutter_icons:
+  image_path: "images/assets/logo.png"
+  android: true
+  ios: true

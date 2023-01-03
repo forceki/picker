@@ -312,7 +312,7 @@ class _OnGoingPageState extends State<OnGoingPage> {
                       ),
                     ),
                     Container(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },

@@ -133,12 +133,11 @@ class LoginPageState extends State<LoginPage> {
 
     var data = {
       'username': nameController.text,
-      'password': passwordController.text,
-      'code': "sp3-app"
+      'password': passwordController.text
     };
 
     var res = await Api().auth(data, 'auth');
-    
+    print(res);
     var body = json.decode(res.body);
     var success = body['success'];
     log("data : $body");

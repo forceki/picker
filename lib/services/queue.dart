@@ -9,23 +9,29 @@ class QueueAPI {
   final _url = 'http://103.161.206.136:1130/';
   //final _url = 'http://192.168.0.108:3000/';
   var token;
-
+  var name;
   _getToken() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
 
     var test = localStorage.getString('token');
-
-    if (test != null) {
+    var user = jsonDecode(localStorage.getString('user')!);
+    
+    if (test != null && user != null) {
       token = test;
+      name = user['username'];
     }
-
-    log("token $token");
   }
 
+
   Future<TotalDetail> getPicklist(apiUrl, status) async {
+    await _getToken();
     var fullUrl = _url + apiUrl;
+    print(name);
     final response = await http.get(
-        Uri.parse(fullUrl).replace(query: 'status=$status'),
+        Uri.parse(fullUrl).replace(queryParameters:{
+        'status':status,
+        'user':name
+      }),
         headers: _setHeaders());
 
     if (response.statusCode == 200) {
@@ -52,8 +58,10 @@ class QueueAPI {
 
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body);
+      print(parsed);
 
       final anu = parsed['data'];
+    
 
       return ArticleDetail.fromJson(parsed);
     } else {
@@ -63,9 +71,13 @@ class QueueAPI {
 
   Future<ArticleDetail> getOngoing(apiUrl) async {
     var fullUrl = _url + apiUrl;
+    await _getToken();
+
     final response = await http
         .get(
-      Uri.parse(fullUrl),
+      Uri.parse(fullUrl).replace(queryParameters:{
+        'user':name
+      }),
       headers: _setHeaders(),
     )
         .timeout(
@@ -82,7 +94,7 @@ class QueueAPI {
       print(parsed);
 
       final anu = parsed['data'];
-      print(anu.length);
+    
 
       return ArticleDetail.fromJson(parsed);
     } else {
@@ -92,9 +104,13 @@ class QueueAPI {
 
   Future<TotalDetail> getTotal(apiUrl, status) async {
     var fullUrl = _url + apiUrl;
+    await _getToken();
 
     final response = await http.get(
-      Uri.parse(fullUrl).replace(query: 'status=$status'),
+      Uri.parse(fullUrl).replace(queryParameters:{
+        'status':status,
+        'user':name
+      }),
       headers: _setHeaders(),
     );
 
@@ -153,9 +169,12 @@ class QueueAPI {
 
   Future<Dashboard> dashboard(apiUrl) async {
     var fullUrl = _url + apiUrl;
+    await _getToken();
 
     final response = await http.get(
-      Uri.parse(fullUrl),
+      Uri.parse(fullUrl).replace(queryParameters: {
+        'user':name
+      }),
       headers: _setHeaders(),
     );
 

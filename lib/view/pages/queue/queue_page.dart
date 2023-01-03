@@ -27,7 +27,7 @@ class _QueuePageState extends State<QueuePage> {
   }
 
   getData() async {
-    futurequelist = QueueAPI().getPicklist("picklist", 0);
+    futurequelist = QueueAPI().getPicklist("picklist", '0');
     // total = QueueAPI().getTotal("picklist/total", 0);
   }
 

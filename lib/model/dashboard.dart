@@ -36,6 +36,8 @@ class Dashboard {
       required this.started,
       required this.totalArticle,
       required this.totalQty,
+      required this.qty,
+      required this.artic,
       required this.duration,
       required this.finished,
       required this.queue});
@@ -44,6 +46,8 @@ class Dashboard {
   String started;
   String totalArticle;
   String totalQty;
+  int qty;
+  int artic;
   String duration;
   Finished finished;
   Queue queue;
@@ -54,6 +58,8 @@ class Dashboard {
         started: json['started'],
         totalArticle: json['total_article'],
         totalQty: json['total_qty'],
+        qty : json['qty'],
+        artic: json['article'],
         duration: json['duration'],
         finished: Finished.fromJson(json["fineshed"]),
         queue: Queue.fromJson(json["queue"]));

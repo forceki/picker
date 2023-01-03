@@ -5,8 +5,11 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class ChartWidget extends StatefulWidget {
-  const ChartWidget({Key? key}) : super(key: key);
+  const ChartWidget({Key? key, required this.queue,required this.article}) : super(key: key);
 
+  final int queue;
+  final int article;
+  
   @override
   State<ChartWidget> createState() => _ChartWidgetState();
 }
@@ -37,8 +40,8 @@ class _ChartWidgetState extends State<ChartWidget> {
 
   List<GDPData> getChartData() {
     final List<GDPData> chartData = [
-      GDPData('Jan', 35, const Color(0xFF2CBF6C)),
-      GDPData('Feb', 28, Colors.black),
+      GDPData('article', widget.article, const Color(0xFF2CBF6C)),
+      GDPData('queue', widget.queue, Colors.black),
     ];
     return chartData;
   }

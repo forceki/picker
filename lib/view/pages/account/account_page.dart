@@ -17,6 +17,7 @@ class AccountPage extends StatefulWidget {
 
 class AccountPageState extends State<AccountPage> {
   String name = '';
+  String email = '';
 
   @override
   void initState() {
@@ -27,12 +28,13 @@ class AccountPageState extends State<AccountPage> {
   _loadUserData() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
 
-    // var user = jsonDecode(localStorage.getString('user')!);
-    // if (user != null) {
-    //   setState(() {
-    //     name = user['username'];
-    //   });
-    // }
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      setState(() {
+        name = user['username'];
+        email = user['email'];
+      });
+    }
   }
 
   @override
@@ -52,18 +54,18 @@ class AccountPageState extends State<AccountPage> {
                     'https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
               )),
         ),
-        const Padding(
+          Padding(
           padding: EdgeInsets.only(bottom: 5),
           child: Text(
-            'John Doe',
+            '$name',
             style: TextStyle(
                 color: Colors.black, fontSize: 32, fontWeight: FontWeight.w500),
           ),
         ),
-        const Padding(
+         Padding(
           padding: EdgeInsets.only(bottom: 15),
           child: Text(
-            '@mitra',
+            '$email',
             style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ),
