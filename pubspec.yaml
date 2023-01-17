@@ -12,10 +12,22 @@ dependencies:
   http: ^0.13.4
   cupertino_icons: ^1.0.2
   syncfusion_flutter_charts: ^19.1.54
+  flutter_barcode_scanner: ^2.0.0
+  qr_flutter: ^4.0.0
+  epson_epos: ^0.0.2
+  esc_pos_utils: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  image_path: "assets/images/logo.png"
+  android: true
+  ios: true
+
 flutter:
   uses-material-design: true
+

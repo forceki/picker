@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:picker/app.dart';
 
 class MyHttpOverrides extends HttpOverrides {
@@ -14,5 +15,10 @@ class MyHttpOverrides extends HttpOverrides {
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }

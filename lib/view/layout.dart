@@ -3,8 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/retry.dart';
 import 'package:picker/view/auth/login_page.dart';
-import 'package:picker/view/home/home_page.dart';
+import 'package:picker/view/pages/finished/finished_page.dart';
+import 'package:picker/view/pages/home/home_page.dart';
+import 'package:picker/view/pages/ongoing/ongoing_page.dart';
+import 'package:picker/view/pages/queue/queue_page.dart';
+import 'package:picker/view/pages/account/account_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Layout extends StatefulWidget {
@@ -19,11 +24,7 @@ class _LayoutState extends State<Layout> {
   int currentIndex = 0;
 
   final itemContent = [
-    HomePage(),
-    Center(child: Text("Ongoing")),
-    Center(child: Text("Queue")),
-    Center(child: Text("Finished")),
-    Center(child: Text("My Account")),
+    const Center(child: Text("My Account")),
   ];
 
   @override
@@ -38,8 +39,49 @@ class _LayoutState extends State<Layout> {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       setState(() {
-        name = user['fullname'];
+        name = user['username'];
       });
+    }
+  }
+
+  Widget getContent() {
+    switch (currentIndex) {
+      case 0:
+        return HomePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      case 1:
+        return OnGoingPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      case 2:
+        return QueuePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      case 3:
+        return FinishedPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      case 4:
+        return AccountPage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
+      default:
+        return HomePage(changeNavbar: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        });
     }
   }
 
@@ -47,28 +89,19 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Logged in $name',
-          style: TextStyle(fontSize: 16, color: Colors.black),
-        ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.power_settings_new, color: Colors.black),
-            onPressed: () {
-              logout();
-            },
-          )
-        ],
-      ),
-      body: itemContent[currentIndex],
+          title: Text(
+            'Logged in $name',
+            style: const TextStyle(fontSize: 16, color: Colors.black),
+          ),
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          elevation: 0),
+      body: getContent(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: (index) => setState(() => currentIndex = index),
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.stacked_bar_chart), label: "Ongoing"),
@@ -88,6 +121,6 @@ class _LayoutState extends State<Layout> {
     localStorage.remove('user');
     localStorage.remove('token');
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }

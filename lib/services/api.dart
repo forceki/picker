@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Api {
-  final _url = 'http://192.168.0.108:3000/';
+  final _url = 'http://103.161.206.136:1130/';
 
   var token;
 
@@ -23,8 +23,12 @@ class Api {
   auth(data, apiUrl) async {
     var fullUrl = _url + apiUrl;
     log("url $data");
-    return await http.post(Uri.parse(fullUrl),
-        body: jsonEncode(data), headers: _setHeaders());
+    try {
+      return await http.post(Uri.parse(fullUrl),
+          body: jsonEncode(data), headers: _setHeaders());
+    } catch (e) {
+      print(e);
+    }
   }
 
   getData(apiUrl) async {
